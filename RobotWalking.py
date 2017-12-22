@@ -181,8 +181,16 @@ while True:
         if event.type == pygame.pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 timer += 1
+                print timer
             elif event.key == pygame.K_DOWN:
                 timer -= 1
+                print timer
+            elif event.key == pygame.K_w:
+                timer += 1
+                print timer
+            elif event.key == pygame.K_s:
+                timer -= 1
+                print timer
 
 
 
