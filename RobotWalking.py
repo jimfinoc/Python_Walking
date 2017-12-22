@@ -78,14 +78,15 @@ step = {}
 # step[RF] = [ (stepX+4)%8 ,(stepY+4)%8]
 # step[RB] = [ (stepX+6)%8 ,(stepY+6)%8]
 
+stepX = 0
+stepY = 0
+
 step[LB] = [ (stepX+2)%8 ,0]
 step[LF] = [ (stepX+0)%8 ,0]
 step[RF] = [ (stepX+4)%8 ,0]
 step[RB] = [ (stepX+6)%8 ,0]
 
 
-stepX = 0
-stepY = 0
 center = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
 base = ([-45,-45],[-45,45],[45,45],[45,-45])
