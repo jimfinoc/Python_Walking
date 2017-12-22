@@ -177,7 +177,8 @@ while True:
         os.system("clear")
         print ('Step LF RF LB RB')
     counter += 1
-    print ('{0:4d} {0:4d}'.format(
+    print ('{0:4d} {1:4d} {2:4d}'.format(
+    step,
         x+box[LB][0],
         # x+base[RF][0]+footRF[0],
         y-base[RF][1]-footRF[1]+1
