@@ -159,27 +159,29 @@ while True:
     canvas.after(500)
     # timer += 1
 
-    keys=pygame.key.get_pressed()
-    if keys[K_LEFT]:
-        location-=1
-        if location==-1:
-            location=0
-    if keys[K_RIGHT]:
-        location+=1
-        if location==5:
-            location=4
-    if keys[K_UP]:
-        timer += 1
-        print("up")
-    if keys[K_DOWN]:
-        location-=1
-        print("down")
+    # keys=pygame.key.get_pressed()
+    pressed = pygame.key.get_pressed()
+
+    # if keys[K_LEFT]:
+    #     location-=1
+    #     if location==-1:
+    #         location=0
+    # if keys[K_RIGHT]:
+    #     location+=1
+    #     if location==5:
+    #         location=4
+    # if keys[K_UP]:
+    #     timer += 1
+    #     print("up")
+    # if keys[K_DOWN]:
+    #     location-=1
+    #     print("down")
 
     for event in pygame.event.get():
         if event.type == pygame.pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 timer += 1
-            elif event.type == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
                 timer -= 1
 
 
