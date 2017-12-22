@@ -176,9 +176,9 @@ while True:
         print("down")
 
     for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
+        if event.type == pygame.K_UP:
             timer += 1
-        elif event.type == pygame.KEYUP and event.key == pygame.K_d:
+        elif event.type == pygame.K_DOWN:
             timer -= 1
 
 
