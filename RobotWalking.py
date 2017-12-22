@@ -94,7 +94,7 @@ def key(event):
     else:
         msg = 'Special Key %r' % event.keysym
         if msg=="Up":
-            timer +=
+            timer += 1
             print timer
         if msg=="Down":
             timer -= 1
