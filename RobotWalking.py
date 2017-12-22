@@ -177,8 +177,8 @@ while True:
     #     location-=1
     #     print("down")
 
-    for event in pygame.key.get_pressed():
-        if event.type == pygame.pygame.KEYDOWN:
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 timer += 1
                 print timer
