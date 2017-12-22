@@ -160,8 +160,8 @@ def key(event):
     # label1.config(text=msg)
     lineCounter += 3
     print(msg)
-    print ("timer"),
-    print (timer)
+    print ("stepx stepy"),
+    print (stepX,stepY)
 
 root.bind_all('<Key>', key)
 while True:
