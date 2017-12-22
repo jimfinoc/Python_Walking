@@ -234,9 +234,10 @@ while True:
         lineCounter = 0
         os.system("clear")
         print ('Step LF RF LB RB')
-    lineCounter += 1
-    print ('{0:4d} {1:4d} {2:4d} {3:4d} {4:4d}'.format(
-        step,
+    lineCounter += 2
+    print ("step",step)
+    print ('{0:4d} {1:4d} {2:4d} {3:4d} '.format(
+
         box[RF][0],
         box[RF][1],
         base[RF][0]+foot[RF][0],
