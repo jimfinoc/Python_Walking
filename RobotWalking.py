@@ -92,7 +92,7 @@ footRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
 timer = 0
 while True:
-    print (heardEnter())
+    # print (heardEnter())
     canvas.delete("all")
     # step = timer%8
     stepLF = (timer)%8
