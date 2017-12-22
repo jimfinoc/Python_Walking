@@ -74,11 +74,7 @@ center = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
 base = ([-45,-45],[-45,45],[45,45],[45,-45])
 
-# footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
-footRFTable = (
-    [ 0, 0,1],[ 0, 15,0],[,,],[,,],[,,],[,,],[,,],[ 0, -15,0],[,,],[,,],
-    [ 0, 0,1],[ 3,  0,0],[,,],[,,],[,,],[,,],[,,],[ -3,   0,0],[,,],[,,]
-    )
+footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 
 footLF = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
 footLB = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
@@ -104,8 +100,8 @@ def key(event):
             timer -= 1
     # label1.config(text=msg)
     print(msg)
-    print ("timer"),
-    print (timer)
+    print "timer",
+    print timer
 
 root.bind_all('<Key>', key)
 while True:
@@ -117,12 +113,10 @@ while True:
     stepRF = (timer+4)%8
     stepRB = (timer+6)%8
 
-    ### draw the foot position on the canvas
     if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
-        # footRF = [footRF[0]+
         canvas.create_polygon(
             x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
-            x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[1],
+            x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
             x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
             x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
             outline="gray",fill="yellow")
@@ -154,8 +148,17 @@ while True:
 
 
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
+    # if footLF[stepLF][2]==0 and footLB[stepLB][2]==0:
+    #     canvas.create_polygon(x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="yellow",fill="yellow")
+    # if footLF[stepLF][2]==0 and footRB[stepRB][2]==0:
+    #     canvas.create_polygon(x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="yellow",fill="yellow")
+    # if footRF[stepRF][2]==0 and footLB[stepLB][2]==0:
+    #     canvas.create_polygon(x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="yellow",fill="yellow")
+    # if footRF[stepRF][2]==0 and footRB[stepRB][2]==0:
+    #     canvas.create_polygon(x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="yellow",fill="yellow")
+    # if footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
+    #     canvas.create_polygon(x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="yellow",fill="yellow")
 
-    ### draw the body and center of mass of the robot
     canvas.create_polygon(x+base[LF][0],y-base[LF][1], x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],outline="black")
     canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="black")
     canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="black")
