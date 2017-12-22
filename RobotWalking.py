@@ -1,6 +1,6 @@
 import tkinter as tk
 import os
-
+import math
 # import pygame
 # import pygame.mixer
 #
@@ -77,24 +77,31 @@ box = ([-50,-50],[-50,50],[50,50],[50,-50])
 base = ([-45,-45],[-45,45],[45,45],[45,-45])
 
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
-footTableRF = (
-    [#forward motion
-        [ 0, 0,1],[ 0, 15,0],[],[],[],[],[],[ 0, -15,0],[],[],
-    ],[#lateral motion
-        [ 0, 0,1],[ 3,  0,0],[],[],[],[],[],[ -3,   0,0],[],[]
-    ],[#diagonal motion
-        [0,0,0],[0,0,0]
+footTable = (
+    # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
+    [#run motion step of 5
+        [ 0,5,0],[ 0, 15,0],[],[],[],[],[],[ 20, -15,0],[],[],
+    ],
+    [#walk motion
+        [0,1,0],[ 0, 3,0],[],[],[],[],[],[ 20, -3,0],[],[],
+    ],
+    [#lateral motion
+        [ 1,0,0],[ 3,  0,0],[],[],[],[],[],[ -3,   0,0],[],[]
+    ],[#turning motion
+        [0,0,1],[0,0,0]
     ]
     )
+#initial positions of the feed
+foot = ([-20,0,0],[-20,0,0],[20,0,0],[20,0,0])
+initialFoot = foot
+# footRF = [20,0,0]
+# footLF = [-20,0,0]
+# footLB = [-20,0,0]
+# footRB = [20,0,0]
 
-footRF = [20,0,1]
-footLF = [0,0,1]
-footLB = [0,0,1]
-footRB = [0,0,1]
-
-footTableLF = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
-footTableLB = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
-footTableRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
+# footTableLF = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
+# footTableLB = ([-20, 0,1],[-20, 15,0],[-20, 10,0],[-20, 5,0],[-20, 0,0],[-20, -5,0],[-20, -10,0],[-20, -15,0],[],[])
+# footTableRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
@@ -131,13 +138,13 @@ while True:
 
     ### draw the foot position on the canvas
 
-    if footLF[2]==0 and footRF[2]==0 and footLB[2]==0 and footRB[2]==0:
+    if foot[LF][2]==0 and foot[RF][2]==0 and foot[LB][2]==0 and foot[RB][2]==0:
         # footRF = [footRF[0]+
         canvas.create_polygon(
-            x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
-            x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[1],
-            x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
-            x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
+            x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
+            x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],
+            x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
+            x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
             outline="gray",fill="yellow")
     # else:
     #     if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0:
