@@ -66,12 +66,26 @@ y = 200
 canvas = tk.Canvas(root, width=400, height=400)
 canvas.pack()
 
+position = []
 LB = 0
 LF = 1
 RF = 2
 RB = 3
 lineCounter = 0
-step = 0
+step = {}
+# step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
+# step[LF] = [ (stepX+0)%8 ,(stepY+0)%8]
+# step[RF] = [ (stepX+4)%8 ,(stepY+4)%8]
+# step[RB] = [ (stepX+6)%8 ,(stepY+6)%8]
+
+step[LB] = [ (stepX+2)%8 ,0]
+step[LF] = [ (stepX+0)%8 ,0]
+step[RF] = [ (stepX+4)%8 ,0]
+step[RB] = [ (stepX+6)%8 ,0]
+
+
+stepX = 0
+stepY = 0
 center = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
 base = ([-45,-45],[-45,45],[45,45],[45,-45])
@@ -80,7 +94,7 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 footTable = (
     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
     [#run motion step of 5
-        [ 0,5,0],[ 0, 15,0],[],[],[],[],[],[ 20, -15,0],[],[],
+        # [ 0,5,0],[ 0, 15,0],[],[],[],[],[],[ 20, -15,0],[],[],
     ],
     [#walk motion
         [0,1,0],[ 0, 3,0],[],[],[],[],[],[ 20, -3,0],[],[],
@@ -94,6 +108,7 @@ footTable = (
 #initial positions of the feed
 foot = ([-20,0,0],[-20,0,0],[20,0,0],[20,0,0])
 initialFoot = foot
+
 # footRF = [20,0,0]
 # footLF = [-20,0,0]
 # footLB = [-20,0,0]
@@ -110,18 +125,37 @@ timer = 0
 # label1.pack()
 
 def key(event):
-    global timer
+    global stepX
+    global stepY
     global lineCounter
+    global foot
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
+        if event.keysym=="w":
+            stepY += 1
+        if event.keysym=="s":
+            stepY -= 1
+        if event.keysym=="a":
+            stepX += 1
+        if event.keysym=="d":
+            stepX -= 1
+        if event.keysym=="q":
+            pass
+        if event.keysym=="e":
+            pass
+            w
     elif len(event.char) == 1:
         msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
     else:
         msg = 'Special Key %r' % event.keysym
         if event.keysym=="Up":
-            timer += 1
+            stepY += 1
         if event.keysym=="Down":
-            timer -= 1
+            stepY -= 1
+        if event.keysym=="Left":
+            stepX += 1
+        if event.keysym=="Right":
+            stepX -= 1
     # label1.config(text=msg)
     lineCounter += 3
     print(msg)
@@ -132,14 +166,12 @@ root.bind_all('<Key>', key)
 while True:
     # print (heardEnter())
     canvas.delete("all")
-    # step = timer%8
-    stepLF = (timer)%8
-    stepLB = (timer+2)%8
-    stepRF = (timer+4)%8
-    stepRB = (timer+6)%8
+    step[LB] = [ (stepX+2)%8 ,0]
+    step[LF] = [ (stepX+0)%8 ,0]
+    step[RF] = [ (stepX+4)%8 ,0]
+    step[RB] = [ (stepX+6)%8 ,0]
 
-    ### draw the foot position on the canvas
-
+    ### draw the four foot position on the canvas
     if foot[LF][2]==0 and foot[RF][2]==0 and foot[LB][2]==0 and foot[RB][2]==0:
         # footRF = [footRF[0]+
         canvas.create_polygon(
@@ -148,7 +180,7 @@ while True:
             x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
             x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
             outline="yellow",fill="yellow")
-    else:
+    else: # this just draws one of four triangles for the 3 down feet
         if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0:
             canvas.create_polygon(
                 x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
