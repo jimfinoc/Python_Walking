@@ -87,7 +87,7 @@ timer = 0
 # label1.pack()
 
 def key(event
-global timer
+    global timer
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
     elif len(event.char) == 1:
