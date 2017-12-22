@@ -70,7 +70,7 @@ LB = 0
 LF = 1
 RF = 2
 RB = 3
-counter = 0
+lineCounter = 0
 step = 0
 center = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
@@ -111,6 +111,7 @@ timer = 0
 
 def key(event):
     global timer
+    global lineCounter
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
     elif len(event.char) == 1:
@@ -122,7 +123,7 @@ def key(event):
         if event.keysym=="Down":
             timer -= 1
     # label1.config(text=msg)
-    counter += 3
+    lineCounter += 3
     print(msg)
     print ("timer"),
     print (timer)
@@ -176,16 +177,31 @@ while True:
 
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
 
-    ### draw the body and center of mass of the robot
+    ### draw the legs of the robot
     canvas.create_polygon(x+base[LF][0],y-base[LF][1], x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],outline="black")
     canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],outline="black")
     canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],outline="black")
     canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],outline="black")
-    if counter>22:
-        counter = 0
+
+    ### draw the body of the robot
+    canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
+    canvas.create_polygon(x+box[LF][0],y-box[LF][1], x+box[RF][0],y-box[RF][1],outline="red")
+    canvas.create_polygon(x+box[RF][0],y-box[RF][1], x+box[RB][0],y-box[RB][1],outline="red")
+    canvas.create_polygon(x+box[RB][0],y-box[RB][1], x+box[LB][0],y-box[LB][1],outline="red")
+
+    ### draw the center of mass of the robot
+    canvas.create_polygon(x+center[0][0],y-center[0][1], x+center[1][0],y-center[1][1],outline="red")
+    canvas.create_polygon(x+center[1][0],y-center[1][1],x+center[2][0],y-center[2][1],outline="red")
+    canvas.create_polygon(x+center[2][0],y-center[2][1], x+center[3][0],y-center[3][1],outline="red")
+    canvas.create_polygon(x+center[3][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
+    # timer += 1
+
+    #this is the output text for tracking input and debugging
+    if lineCounter>22:
+        lineCounter = 0
         os.system("clear")
         print ('Step LF RF LB RB')
-    counter += 1
+    lineCounter += 1
     print ('{0:4d} {1:4d} {2:4d} {3:4d} {4:4d}'.format(
         step,
         box[RF][0],
@@ -193,19 +209,6 @@ while True:
         base[RF][0]+foot[RF][0],
         base[RF][1]+foot[RF][1]
         ))
-
-    canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
-    canvas.create_polygon(x+box[LF][0],y-box[LF][1], x+box[RF][0],y-box[RF][1],outline="red")
-    canvas.create_polygon(x+box[RF][0],y-box[RF][1], x+box[RB][0],y-box[RB][1],outline="red")
-    canvas.create_polygon(x+box[RB][0],y-box[RB][1], x+box[LB][0],y-box[LB][1],outline="red")
-
-    canvas.create_polygon(x+center[0][0],y-center[0][1], x+center[1][0],y-center[1][1],outline="red")
-    canvas.create_polygon(x+center[1][0],y-center[1][1],x+center[2][0],y-center[2][1],outline="red")
-    canvas.create_polygon(x+center[2][0],y-center[2][1], x+center[3][0],y-center[3][1],outline="red")
-    canvas.create_polygon(x+center[3][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
-
-    canvas.create_polygon(x+center[RF][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
-    # timer += 1
 
 
     # for event in pygame.event.get():
