@@ -155,8 +155,6 @@ while True:
     canvas.create_polygon(x+center[3][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
 
     canvas.create_polygon(x+center[RF][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
-    canvas.update()
-    canvas.after(500)
     # timer += 1
 
     # keys=pygame.key.get_pressed()
@@ -194,13 +192,8 @@ while True:
                 timer -= 1
                 print timer
     pygame.event.pump()
-
-
-
-
-
-
-
+    canvas.update()
+    canvas.after(500)
     print ("next")
 
 
