@@ -123,7 +123,7 @@ while True:
     stepRB = (timer+6)%8
 
     ### draw the foot position on the canvas
-    if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
+    if footLF[2]==0 and footRF[2]==0 and footLB[2]==0 and footRB[2]==0:
         # footRF = [footRF[0]+
         canvas.create_polygon(
             x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
