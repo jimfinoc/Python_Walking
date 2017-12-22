@@ -174,7 +174,21 @@ while True:
     if keys[K_DOWN]:
         location-=1
         print("down")
-    print ("next")    
+
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
+            timer += 1
+        elif event.type == pygame.KEYUP and event.key == pygame.K_d:
+            timer -= 1
+
+
+
+
+
+
+
+
+    print ("next")
 
 
 root.mainloop()
