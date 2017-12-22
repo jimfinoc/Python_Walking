@@ -94,13 +94,14 @@ def key(event):
     else:
         msg = 'Special Key %r' % event.keysym
         if msg=="Up":
-            timer += 1
+            timer +=
+            print timer
         if msg=="Down":
             timer -= 1
     # label1.config(text=msg)
     print(msg)
-    print "timer",
-    print timer
+    # print "timer",
+    # print timerz
 
 root.bind_all('<Key>', key)
 while True:
