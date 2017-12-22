@@ -176,10 +176,10 @@ while True:
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
 
     ### draw the body and center of mass of the robot
-    # canvas.create_polygon(x+base[LF][0],y-base[LF][1], x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],outline="black")
+    canvas.create_polygon(x+base[LF][0],y-base[LF][1], x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],outline="black")
     canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],outline="black")
-    # canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="black")
-    # canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="black")
+    canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],outline="black")
+    canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],outline="black")
     if counter%22==0:
         os.system("clear")
         print ('Step LF RF LB RB')
