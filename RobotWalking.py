@@ -188,8 +188,8 @@ while True:
         step,
         box[RF][0],
         box[RF][1],
-        base[RF][0]+footRF[0],
-        base[RF][1]+footRF[1]
+        base[RF][0]+foot[RF][0],
+        base[RF][1]+foot[RF][1]
         ))
 
     canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
