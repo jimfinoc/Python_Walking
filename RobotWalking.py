@@ -86,7 +86,7 @@ timer = 0
 # label1 = Label(root, text=prompt, width=len(prompt), bg='yellow')
 # label1.pack()
 
-def key(event
+def key(event):
     global timer
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
