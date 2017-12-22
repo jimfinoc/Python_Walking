@@ -178,9 +178,10 @@ while True:
         print ('Step LF RF LB RB')
     counter += 1
     print ('{0:4d} {0:4d}'.format(
-        x+box[LB][0],y-box[LB][1],
+        x+box[LB][0],
         # x+base[RF][0]+footRF[0],
-        y-base[RF][1]-footRF[1]))
+        y-base[RF][1]-footRF[1]
+        ))
 
     canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
     canvas.create_polygon(x+box[LF][0],y-box[LF][1], x+box[RF][0],y-box[RF][1],outline="red")
