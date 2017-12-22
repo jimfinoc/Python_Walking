@@ -131,31 +131,31 @@ while True:
             x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
             x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
             outline="gray",fill="yellow")
-    else:
-        if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0:
-            canvas.create_polygon(
-                x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
-                x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
-                x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
-                outline="gray",fill="yellow")
-        if footLF[stepLF][2]==0 and footRF[stepRF][2]==0  and footRB[stepRB][2]==0:
-            canvas.create_polygon(
-                x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
-                x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
-                x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
-                outline="gray",fill="yellow")
-        if footLF[stepLF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
-            canvas.create_polygon(
-                x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
-                x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
-                x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
-                outline="gray",fill="yellow")
-        if footRF[stepRF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
-            canvas.create_polygon(
-                x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
-                x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
-                x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
-                outline="gray",fill="yellow")
+    # else:
+    #     if footLF[stepLF][2]==0 and footRF[stepRF][2]==0 and footLB[stepLB][2]==0:
+    #         canvas.create_polygon(
+    #             x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
+    #             x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
+    #             x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
+    #             outline="gray",fill="yellow")
+    #     if footLF[stepLF][2]==0 and footRF[stepRF][2]==0  and footRB[stepRB][2]==0:
+    #         canvas.create_polygon(
+    #             x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
+    #             x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
+    #             x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
+    #             outline="gray",fill="yellow")
+    #     if footLF[stepLF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
+    #         canvas.create_polygon(
+    #             x+base[LF][0]+footLF[stepLF][0],y-base[LF][1]-footLF[stepLF][1],
+    #             x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
+    #             x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
+    #             outline="gray",fill="yellow")
+    #     if footRF[stepRF][2]==0 and footLB[stepLB][2]==0 and footRB[stepRB][2]==0:
+    #         canvas.create_polygon(
+    #             x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],
+    #             x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],
+    #             x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],
+    #             outline="gray",fill="yellow")
 
 
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
