@@ -77,8 +77,13 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 footTableRF = (
-    [ 0, 0,1],[ 0, 15,0],[],[],[],[],[],[ 0, -15,0],[],[],
-    [ 0, 0,1],[ 3,  0,0],[],[],[],[],[],[ -3,   0,0],[],[]
+    [#forward motion
+        [ 0, 0,1],[ 0, 15,0],[],[],[],[],[],[ 0, -15,0],[],[],
+    ],[#lateral motion
+        [ 0, 0,1],[ 3,  0,0],[],[],[],[],[],[ -3,   0,0],[],[]
+    ],[#diagonal motion
+        [0,0,0],[0,0,0]
+    ]
     )
 
 footRF = [20,0,1]
@@ -124,6 +129,7 @@ while True:
     stepRB = (timer+6)%8
 
     ### draw the foot position on the canvas
+
     if footLF[2]==0 and footRF[2]==0 and footLB[2]==0 and footRB[2]==0:
         # footRF = [footRF[0]+
         canvas.create_polygon(
@@ -166,7 +172,7 @@ while True:
     canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+footRF[0],y-base[RF][1]-footRF[1],outline="black")
     # canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="black")
     # canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="black")
-    if counter%5:
+    if counter%5==0:
         print ('Step LF RF LB RB')
     counter += 1
     print ('{0:4d} {0:4d}'.format(x+base[RF][0]+footRF[0],y-base[RF][1]-footRF[1]))
