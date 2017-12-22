@@ -171,7 +171,6 @@ while True:
                 x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
                 x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
                 outline="yellow",fill="yellow")
-                outline="gray",fill="yellow")
 
 
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
