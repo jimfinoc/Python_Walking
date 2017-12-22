@@ -86,7 +86,8 @@ timer = 0
 # label1 = Label(root, text=prompt, width=len(prompt), bg='yellow')
 # label1.pack()
 
-def key(event):
+def key(event
+global timer
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
     elif len(event.char) == 1:
@@ -95,13 +96,12 @@ def key(event):
         msg = 'Special Key %r' % event.keysym
         if event.keysym=="Up":
             timer += 1
-            print timer
         if event.keysym=="Down":
             timer -= 1
     # label1.config(text=msg)
     print(msg)
-    # print "timer",
-    # print timerz
+    print "timer",
+    print timer
 
 root.bind_all('<Key>', key)
 while True:
