@@ -1,12 +1,12 @@
 import Tkinter as tk
 
-import pygame
-import pygame.mixer
-
-import pygame
-from pygame.locals import *
-
-pygame.init()
+# import pygame
+# import pygame.mixer
+#
+# import pygame
+# from pygame.locals import *
+#
+# pygame.init()
 
 #
 # try:
@@ -83,6 +83,16 @@ footRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
 timer = 0
+root.bind_all('<Key>', key)
+def key(event):
+    if event.char == event.keysym:
+        msg = 'Normal Key %r' % event.char
+    elif len(event.char) == 1:
+        msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
+    else:
+        msg = 'Special Key %r' % event.keysym
+    label1.config(text=msg)
+    
 while True:
     # print (heardEnter())
     canvas.delete("all")
@@ -157,41 +167,24 @@ while True:
     canvas.create_polygon(x+center[RF][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
     # timer += 1
 
-    # keys=pygame.key.get_pressed()
-    # pressed = pygame.key.get_pressed()
 
-    # if keys[K_LEFT]:
-    #     location-=1
-    #     if location==-1:
-    #         location=0
-    # if keys[K_RIGHT]:
-    #     location+=1
-    #     if location==5:
-    #         location=4
-    # if keys[K_UP]:
-    #     timer += 1
-    #     print("up")
-    # if keys[K_DOWN]:
-    #     location-=1
-    #     print("down")
-
-    for event in pygame.event.get():
-        print ("event")
-        if event.type == pygame.KEYDOWN:
-            print ("keydown")
-            if event.key == K_UP:
-                timer += 1
-                print timer
-            elif event.key == K_DOWN:
-                timer -= 1
-                print timer
-            elif event.key == K_w:
-                timer += 1
-                print timer
-            elif event.key == K_s:
-                timer -= 1
-                print timer
-    pygame.event.pump()
+    # for event in pygame.event.get():
+    #     print ("event")
+    #     if event.type == pygame.KEYDOWN:
+    #         print ("keydown")
+    #         if event.key == K_UP:
+    #             timer += 1
+    #             print timer
+    #         elif event.key == K_DOWN:
+    #             timer -= 1
+    #             print timer
+    #         elif event.key == K_w:
+    #             timer += 1
+    #             print timer
+    #         elif event.key == K_s:
+    #             timer -= 1
+    #             print timer
+    # pygame.event.pump()
     canvas.update()
     canvas.after(500)
     print ("next")
