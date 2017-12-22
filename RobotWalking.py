@@ -6,7 +6,7 @@ import pygame.mixer
 import pygame
 from pygame.locals import *
 
-# pygame.init()
+pygame.init()
 
 #
 # try:
