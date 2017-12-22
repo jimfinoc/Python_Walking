@@ -83,7 +83,6 @@ footRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
 timer = 0
-root.bind_all('<Key>', key)
 def key(event):
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
@@ -92,7 +91,8 @@ def key(event):
     else:
         msg = 'Special Key %r' % event.keysym
     label1.config(text=msg)
-    
+
+root.bind_all('<Key>', key)
 while True:
     # print (heardEnter())
     canvas.delete("all")
