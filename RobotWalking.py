@@ -30,15 +30,7 @@ pygame.init()
 #             return True
 #     return False
 
-keys=pygame.key.get_pressed()
-if keys[K_LEFT]:
-    location-=1
-    if location==-1:
-        location=0
-if keys[K_RIGHT]:
-    location+=1
-    if location==5:
-        location=4
+
 
 
 # pygame.joystick.init()
@@ -165,7 +157,22 @@ while True:
     canvas.create_polygon(x+center[RF][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
     canvas.update()
     canvas.after(500)
-    timer += 1
+    # timer += 1
+
+    keys=pygame.key.get_pressed()
+    if keys[K_LEFT]:
+        location-=1
+        if location==-1:
+            location=0
+    if keys[K_RIGHT]:
+        location+=1
+        if location==5:
+            location=4
+    if keys[K_UP]:
+        timer += 1
+    if keys[K_DOWN]:
+        location-=1
+
 
 
 root.mainloop()
