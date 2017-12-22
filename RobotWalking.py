@@ -179,10 +179,10 @@ while True:
     counter += 1
     print ('{0:4d} {1:4d} {2:4d}  {3:4d} {3:4d}'.format(
         step,
-        x+box[LB][0],
-        y-box[LB][1],
-        x+base[RF][0]+footRF[0],
-        y-base[RF][1]-footRF[1]
+        box[LB][0],
+        box[LB][1],
+        base[RF][0]+footRF[0],
+        base[RF][1]+footRF[1]
         ))
 
     canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
