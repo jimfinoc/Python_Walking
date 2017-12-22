@@ -83,8 +83,8 @@ footRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
 timer = 0
-label1 = Label(root, text=prompt, width=len(prompt), bg='yellow')
-label1.pack()
+# label1 = Label(root, text=prompt, width=len(prompt), bg='yellow')
+# label1.pack()
 
 def key(event):
     if event.char == event.keysym:
@@ -93,7 +93,8 @@ def key(event):
         msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
     else:
         msg = 'Special Key %r' % event.keysym
-    label1.config(text=msg)
+    # label1.config(text=msg)
+    print(msg)
 
 root.bind_all('<Key>', key)
 while True:
