@@ -197,7 +197,7 @@ while True:
     # timer += 1
 
     #this is the output text for tracking input and debugging
-    if lineCounter>22:
+    if lineCounter>21:
         lineCounter = 0
         os.system("clear")
         print ('Step LF RF LB RB')
