@@ -89,16 +89,18 @@ timer = 0
 def key(event):
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
-        if msg=="Up":
-            timer +=1
-        if msg=="Down":
-            timer +=1
     elif len(event.char) == 1:
         msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
     else:
         msg = 'Special Key %r' % event.keysym
+        if msg=="Up":
+            timer += 1
+        if msg=="Down":
+            timer -= 1
     # label1.config(text=msg)
     print(msg)
+    print "timer",
+    print timer
 
 root.bind_all('<Key>', key)
 while True:
@@ -195,7 +197,7 @@ while True:
     # pygame.event.pump()
     canvas.update()
     canvas.after(500)
-    print ("next")
+    # print ("next")
 
 
 root.mainloop()
