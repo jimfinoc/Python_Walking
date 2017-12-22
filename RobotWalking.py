@@ -178,7 +178,9 @@ while True:
     #     print("down")
 
     for event in pygame.event.get():
+        print ("event")
         if event.type == pygame.KEYDOWN:
+            print ("keydown")
             if event.key == K_UP:
                 timer += 1
                 print timer
@@ -191,7 +193,7 @@ while True:
             elif event.key == K_s:
                 timer -= 1
                 print timer
-    pygame.event.pump() 
+    pygame.event.pump()
 
 
 
