@@ -167,7 +167,7 @@ while True:
     # canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="black")
     # canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="black")
     if counter%5:
-    print ('Step LF RF LB RB')
+        print ('Step LF RF LB RB')
     counter += 1
     print ('{0:4d} {0:4d} {0:4d} {0:4d}'.format(x+base[RF][0]+footRF[0],y-base[RF][1]-footRF[1]))
 
