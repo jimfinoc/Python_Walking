@@ -69,6 +69,7 @@ LB = 0
 LF = 1
 RF = 2
 RB = 3
+counter = 0
 step = 0
 center = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
@@ -165,7 +166,10 @@ while True:
     canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+footRF[0],y-base[RF][1]-footRF[1],outline="black")
     # canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+footLB[stepLB][0],y-base[LB][1]-footLB[stepLB][1],outline="black")
     # canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+footRB[stepRB][0],y-base[RB][1]-footRB[stepRB][1],outline="black")
-
+    if counter%5:
+    print ('Step LF RF LB RB')
+    counter += 1
+    print ('{0:4d} {0:4d} {0:4d} {0:4d}'.format(x+base[RF][0]+footRF[0],y-base[RF][1]-footRF[1]))
 
     canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
     canvas.create_polygon(x+box[LF][0],y-box[LF][1], x+box[RF][0],y-box[RF][1],outline="red")
