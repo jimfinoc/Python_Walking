@@ -170,9 +170,11 @@ while True:
             location=4
     if keys[K_UP]:
         timer += 1
+        print("up")
     if keys[K_DOWN]:
         location-=1
-
+        print("down")
+    print ("next")    
 
 
 root.mainloop()
