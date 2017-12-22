@@ -83,6 +83,9 @@ footRB = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30,outline="red")
 # canvas.create_polygon(x+10,y-10, x+20,y-20, x+10,y-30)
 timer = 0
+label1 = Label(root, text=prompt, width=len(prompt), bg='yellow')
+label1.pack()
+
 def key(event):
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
