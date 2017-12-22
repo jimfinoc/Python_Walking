@@ -89,6 +89,10 @@ timer = 0
 def key(event):
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
+        if msg=="Up":
+            timer +=1
+        if msg=="Down":
+            timer +=1
     elif len(event.char) == 1:
         msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
     else:
