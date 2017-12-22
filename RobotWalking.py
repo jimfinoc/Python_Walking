@@ -93,10 +93,10 @@ def key(event):
         msg = 'Punctuation Key %r (%r)' % (event.keysym, event.char)
     else:
         msg = 'Special Key %r' % event.keysym
-        if msg=="Up":
+        if event.keysym=="Up":
             timer += 1
             print timer
-        if msg=="Down":
+        if event.keysym=="Down":
             timer -= 1
     # label1.config(text=msg)
     print(msg)
