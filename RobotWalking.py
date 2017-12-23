@@ -3,47 +3,6 @@ import os
 import math
 import pygame
 
-# import pygame
-# import pygame.mixer
-#
-# import pygame
-# from pygame.locals import *
-#
-# pygame.init()
-
-#
-# try:
-# 	j = pygame.joystick.Joystick(0) # create a joystick instance
-# 	j.init() # init instance
-# 	print('Enabled joystick: ' + j.get_name())
-# except pygame.error:
-# 	print('No joystick found.')
-
-# import sys
-# import select
-#
-# def heardEnter():
-#     i,o,e = select.select([sys.stdin],[],[],0.0001)
-#     for s in i:
-#         if s == sys.stdin:
-#             input = sys.stdin.read(1)
-#             if input == "1":
-#                 print ("one")
-#                 sys.stdin.flush()
-#             return True
-#     return False
-
-
-
-
-# pygame.joystick.init()
-# if pygame.joystick.get_init():
-#     print(True)
-# else:
-#     print(False)
-# print (pygame.joystick.get_count())
-# pygame.joystick.Joystick.init()
-
 root=tk.Tk()
 # root.lift()
 root.attributes('-topmost',True)
@@ -331,40 +290,6 @@ while True:
         foot[RB][yVar] = footTable[legUp][RB][yVar]
         foot[RB][zVar] = footTable[legUp][RB][zVar]
 
-        # print ("footTable[legUp][RF]",footTable[legUp][RF])
-        # print ("step[RF][yVar] == 0:")
-        # elif step[LF][xVar] == 0:
-        #     foot[LF]= footTable[legUp][LF]
-        #     legsDown = False
-        # elif step[RB][xVar] == 0:
-        #     foot[RB] = footTable[legUp][RB]
-        #     legsDown = False
-        # elif step[LB][xVar] == 0:
-        #     foot[LB]= footTable[legUp][LB]
-        #     legsDown = False
-
-
-
-
-    # if step[RF][yVar] == 7:
-    #     foot[RF][yVar] = footTable[legWalk7][RF][yVar]
-
-    # if step[RF][xVar] == 1:
-    #     foot[RF][xVar] = footTable[legLeft][RF][xVar]
-    #
-    # if step[RF][xVar] == 7:
-    #     foot[RF][xVar] = footTable[legRight][RF][xVar]
-
-    # if step[RF][yVar] > 1 and step[RF][yVar] < 7:
-    #     foot[RF][yVar]
-
-    # elif step[LF][xVar] == 1:
-    #     foot[LF]= footTable[legUp][LF]
-    # elif step[RB][xVar] == 1:
-    #     foot[RB] = footTable[legUp][RB]
-    # elif step[LB][xVar] == 1:
-    #     foot[LB]= footTable[legUp][LB]
-    #
 
     ### draw the four foot position on the canvas
     if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
@@ -409,20 +334,20 @@ while True:
         # canvas.create_polygon(x+base[RF][0]+footRF[stepLF][0],y-base[RF][1]-footRF[stepRF][1],x+base[RF][0]+footRF[stepRF][0],y-base[RF][1]-footRF[stepRF][1],outline="yellow",fill="yellow")
 
     ### draw the legs of the robot
-    canvas.create_polygon(x+base[LF][0],y-base[LF][1], x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],outline="black")
-    canvas.create_polygon(x+base[RF][0],y-base[RF][1], x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],outline="black")
-    canvas.create_polygon(x+base[LB][0],y-base[LB][1], x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],outline="black")
-    canvas.create_polygon(x+base[RB][0],y-base[RB][1], x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],outline="black")
+    canvas.create_polygon(x+base[LF][xVar],y-base[LF][yVar], x+base[LF][xVar]+foot[LF][0],y-base[LF][yVar]-foot[LF][yVar],outline="black")
+    canvas.create_polygon(x+base[RF][xVar],y-base[RF][yVar], x+base[RF][xVar]+foot[RF][0],y-base[RF][yVar]-foot[RF][yVar],outline="black")
+    canvas.create_polygon(x+base[LB][xVar],y-base[LB][yVar], x+base[LB][xVar]+foot[LB][0],y-base[LB][yVar]-foot[LB][yVar],outline="black")
+    canvas.create_polygon(x+base[RB][xVar],y-base[RB][yVar], x+base[RB][xVar]+foot[RB][0],y-base[RB][yVar]-foot[RB][yVar],outline="black")
 
     ### draw the body of the robot
-    canvas.create_polygon(x+box[LB][0],y-box[LB][1], x+box[LF][0],y-box[LF][1],outline="red")
-    canvas.create_polygon(x+box[LF][0],y-box[LF][1], x+box[RF][0],y-box[RF][1],outline="red")
-    canvas.create_polygon(x+box[RF][0],y-box[RF][1], x+box[RB][0],y-box[RB][1],outline="red")
-    canvas.create_polygon(x+box[RB][0],y-box[RB][1], x+box[LB][0],y-box[LB][1],outline="red")
+    canvas.create_polygon(x+box[LB][0],y-box[LB][yVar], x+box[LF][0],y-box[LF][yVar],outline="red")
+    canvas.create_polygon(x+box[LF][0],y-box[LF][yVar], x+box[RF][0],y-box[RF][yVar],outline="red")
+    canvas.create_polygon(x+box[RF][0],y-box[RF][yVar], x+box[RB][0],y-box[RB][yVar],outline="red")
+    canvas.create_polygon(x+box[RB][0],y-box[RB][yVar], x+box[LB][0],y-box[LB][yVar],outline="red")
 
     ### draw the center of mass of the robot
     canvas.create_polygon(x+centerOfRobot[0][0],y-centerOfRobot[0][1], x+centerOfRobot[1][0],y-centerOfRobot[1][1],outline="red")
-    canvas.create_polygon(x+centerOfRobot[1][0],y-centerOfRobot[1][1],x+centerOfRobot[2][0],y-centerOfRobot[2][1],outline="red")
+    canvas.create_polygon(x+centerOfRobot[1][0],y-centerOfRobot[1][1], x+centerOfRobot[2][0],y-centerOfRobot[2][1],outline="red")
     canvas.create_polygon(x+centerOfRobot[2][0],y-centerOfRobot[2][1], x+centerOfRobot[3][0],y-centerOfRobot[3][1],outline="red")
     canvas.create_polygon(x+centerOfRobot[3][0],y-centerOfRobot[3][1], x+centerOfRobot[0][0],y-centerOfRobot[0][1],outline="red")
     # timer += 1
