@@ -226,7 +226,7 @@ while True:
     # else:
     #     legsDown = False
     legsDown = True
-
+    print ("step[RF][yVar]",step[RF][yVar])
     # if legsDown:
     # if step[RF][xVar] == 0:
     #     foot[RF] = footTable[legUp][RF]
