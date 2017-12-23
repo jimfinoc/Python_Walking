@@ -157,6 +157,13 @@ footTable[legWalk5][RB]  = ([ -21, -5, 0])
 footTable[legWalk6][RB]  = ([ -22, -10, 0])
 footTable[legWalk7][RB]  = ([ -23, -15, 0])
 
+footTable[legWalk1][RB]  = ([ 23, 15, 0])
+footTable[legWalk2][RB]  = ([ 22, 10, 0])
+footTable[legWalk3][RB]  = ([ 21, 5, 0])
+footTable[legWalk4][RB]  = ([ 20, 0, 0])
+footTable[legWalk5][RB]  = ([ 19, -5, 0])
+footTable[legWalk6][RB]  = ([ 18, -10, 0])
+footTable[legWalk7][RB]  = ([ 17, -15, 0])
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
