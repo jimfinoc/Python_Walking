@@ -111,23 +111,24 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 footTable = dict()
 footTable[legUp] = dict()
-footTable[legUp][RF]  = ([ 20, 0, 1])
 # footTable[legUp][LF]  = [-20, 0, 1]
 # footTable[legUp][RB]  = [ 20, 0, 1]
 # footTable[legUp][LB]  = [-20, 0, 1]
 footTable[legWalk1] = dict()
-footTable[legWalk1][RF]  = ([ 23, 15, 0])
 footTable[legWalk2] = dict()
-footTable[legWalk2][RF]  = ([ 22, 10, 0])
 footTable[legWalk3] = dict()
-footTable[legWalk3][RF]  = ([ 21, 5, 0])
 footTable[legWalk4] = dict()
-footTable[legWalk4][RF]  = ([ 20, 0, 0])
 footTable[legWalk5] = dict()
-footTable[legWalk5][RF]  = ([ 19, -5, 0])
 footTable[legWalk6] = dict()
-footTable[legWalk6][RF]  = ([ 18, -10, 0])
 footTable[legWalk7] = dict()
+
+footTable[legUp][RF]  = ([ 20, 0, 1])
+footTable[legWalk1][RF]  = ([ 23, 15, 0])
+footTable[legWalk2][RF]  = ([ 22, 10, 0])
+footTable[legWalk3][RF]  = ([ 21, 5, 0])
+footTable[legWalk4][RF]  = ([ 20, 0, 0])
+footTable[legWalk5][RF]  = ([ 19, -5, 0])
+footTable[legWalk6][RF]  = ([ 18, -10, 0])
 footTable[legWalk7][RF]  = ([ 17, -15, 0])
 
 footTable[legUp][LF]  = ([ -20, 0, 1])
@@ -148,15 +149,7 @@ footTable[legWalk5][LB]  = ([ -21, -5, 0])
 footTable[legWalk6][LB]  = ([ -22, -10, 0])
 footTable[legWalk7][LB]  = ([ -23, -15, 0])
 
-footTable[legUp][RB]  = ([ -20, 0, 1])
-footTable[legWalk1][RB]  = ([ -17, 15, 0])
-footTable[legWalk2][RB]  = ([ -18, 10, 0])
-footTable[legWalk3][RB]  = ([ -19, 5, 0])
-footTable[legWalk4][RB]  = ([ -20, 0, 0])
-footTable[legWalk5][RB]  = ([ -21, -5, 0])
-footTable[legWalk6][RB]  = ([ -22, -10, 0])
-footTable[legWalk7][RB]  = ([ -23, -15, 0])
-
+footTable[legUp][RB]  = ([ 20, 0, 1])
 footTable[legWalk1][RB]  = ([ 23, 15, 0])
 footTable[legWalk2][RB]  = ([ 22, 10, 0])
 footTable[legWalk3][RB]  = ([ 21, 5, 0])
@@ -395,8 +388,8 @@ while True:
         if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[RB][zVar]==0:
             canvas.create_polygon(
                 x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
+                x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],
                 x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
-                x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
             canvas.create_polygon(
