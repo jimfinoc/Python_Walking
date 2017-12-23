@@ -251,8 +251,11 @@ while True:
         #     foot[LB]= footTable[legUp][LB]
         #     legsDown = False
 
-    if step[RF][yVar] > 1:
+    if step[RF][yVar] > 0:
         foot[RF][yVar] = footTable[step[RF][yVar]][RF][yVar]
+    if step[RF][xVar] > 0:
+        foot[RF][xVar] = footTable[step[RF][xVar]][RF][xVar]
+
 
     # if step[RF][yVar] == 7:
     #     foot[RF][yVar] = footTable[legWalk7][RF][yVar]
