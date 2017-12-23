@@ -343,7 +343,7 @@ while True:
     #this is the output text for tracking input and debugging
     if lineCounter<10000:
         lineCounter = 0
-        os.system("clear")
+        # os.system("clear")
         # print ('Step LF RF LB RB')
     # lineCounter += 2
     print ("step",step)
