@@ -216,10 +216,10 @@ root.bind_all('<Key>', key)
 while True:
     # print (heardEnter())
     canvas.delete("all")
-    step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
-    step[LF] = [ (stepX+0)%8 ,(stepY+0)%8]
-    step[RF] = [ (stepX+4)%8 ,(stepY+4)%8]
-    step[RB] = [ (stepX+6)%8 ,(stepY+6)%8]
+    step[LB] = [ (stepX+3)%8 ,(stepY+2)%8]
+    step[LF] = [ (stepX+1)%8 ,(stepY+0)%8]
+    step[RF] = [ (stepX+5)%8 ,(stepY+4)%8]
+    step[RB] = [ (stepX+7)%8 ,(stepY+6)%8]
 
     # if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
     #     legsDown = True
