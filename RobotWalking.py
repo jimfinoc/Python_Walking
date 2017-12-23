@@ -294,6 +294,7 @@ while True:
     ### draw the four foot position on the canvas
     if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
         # footRF = [footRF[0]+
+        print ("all four")
         canvas.create_polygon(
             x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
             x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
@@ -302,6 +303,7 @@ while True:
             outline="yellow",fill="yellow")
     else: # this just draws one of four triangles for the 3 down feet
         if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0                    :
+            print ("not RB")
             canvas.create_polygon(
                 x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
                 x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
@@ -309,6 +311,7 @@ while True:
                 x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0 and foot[RF][zVar]==0                       and foot[RB][zVar]==0:
+            print ("not LB")
             canvas.create_polygon(
                 x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
                 x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
@@ -316,6 +319,7 @@ while True:
                 # x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0                       and foot[LB][zVar]==0 and foot[RB][zVar]==0:
+            print ("not RF")
             canvas.create_polygon(
                 x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
                 # x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
@@ -323,6 +327,7 @@ while True:
                 x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if                       foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
+            print ("not LF")
             canvas.create_polygon(
                 # x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
                 x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
