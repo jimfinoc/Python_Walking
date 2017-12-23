@@ -254,19 +254,20 @@ while True:
     # timer += 1
 
     #this is the output text for tracking input and debugging
-    if lineCounter>21:
+    if lineCounter<10000:
         lineCounter = 0
         os.system("clear")
-        print ('Step LF RF LB RB')
-    lineCounter += 2
+        # print ('Step LF RF LB RB')
+    # lineCounter += 2
     print ("step",step)
-    print ('{0:4d} {1:4d} {2:4d} {3:4d} '.format(
-
-        box[RF][0],
-        box[RF][1],
-        base[RF][0]+foot[RF][0],
-        base[RF][1]+foot[RF][1]
-        ))
+    print ("foot",foot)
+    # print ('{0:4d} {1:4d} {2:4d} {3:4d} '.format(
+    #
+    #     box[RF][0],
+    #     box[RF][1],
+    #     base[RF][0]+foot[RF][0],
+    #     base[RF][1]+foot[RF][1]
+    #     ))
 
 
     # for event in pygame.event.get():
