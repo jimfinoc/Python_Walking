@@ -77,8 +77,8 @@ zVar = 2
 lineCounter = 0
 step = {}
 legUp = 0
-legWalk1 = 01
-legWalk2 = 07
+legWalk1 = 1
+legWalk2 = 7
 legLeft = 11
 legRight = 17
 
