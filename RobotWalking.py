@@ -78,41 +78,57 @@ footTable[legWalk5] = dict()
 footTable[legWalk6] = dict()
 footTable[legWalk7] = dict()
 
-footTable[legUp][RF]  = ([ 20, 0, 1])
-footTable[legWalk1][RF]  = ([ 23, 15, 0])
-footTable[legWalk2][RF]  = ([ 22, 10, 0])
-footTable[legWalk3][RF]  = ([ 21, 5, 0])
-footTable[legWalk4][RF]  = ([ 20, 0, 0])
-footTable[legWalk5][RF]  = ([ 19, -5, 0])
-footTable[legWalk6][RF]  = ([ 18, -10, 0])
-footTable[legWalk7][RF]  = ([ 17, -15, 0])
+stepS = 2
+stepL3 = 20+3 * stepS
+stepL2 = 20+2 * stepS
+stepL1 = 20+1 * stepS
+stepS0 = 20+0* stepS
+stepR1 = 20-1 * stepS
+stepR2 = 20-2 * stepS
+stepR3 = 20-3 * stepS
 
-footTable[legUp][LF]  = ([ -20, 0, 1])
-footTable[legWalk1][LF]  = ([ -17, 15, 0])
-footTable[legWalk2][LF]  = ([ -18, 10, 0])
-footTable[legWalk3][LF]  = ([ -19, 5, 0])
-footTable[legWalk4][LF]  = ([ -20, 0, 0])
-footTable[legWalk5][LF]  = ([ -21, -5, 0])
-footTable[legWalk6][LF]  = ([ -22, -10, 0])
-footTable[legWalk7][LF]  = ([ -23, -15, 0])
 
-footTable[legUp][LB]  = ([ -20, 0, 1])
-footTable[legWalk1][LB]  = ([ -17, 15, 0])
-footTable[legWalk2][LB]  = ([ -18, 10, 0])
-footTable[legWalk3][LB]  = ([ -19, 5, 0])
-footTable[legWalk4][LB]  = ([ -20, 0, 0])
-footTable[legWalk5][LB]  = ([ -21, -5, 0])
-footTable[legWalk6][LB]  = ([ -22, -10, 0])
-footTable[legWalk7][LB]  = ([ -23, -15, 0])
+stepW = 5
+stepW3 = 0 + 3 * stepW
+stepW2 = 0 + 2 * stepW
+stepW1 = 0 + 1 * stepW
+stepW0 = 0 + 0 * stepW
 
-footTable[legUp][RB]  = ([ 20, 0, 1])
-footTable[legWalk1][RB]  = ([ 23, 15, 0])
-footTable[legWalk2][RB]  = ([ 22, 10, 0])
-footTable[legWalk3][RB]  = ([ 21, 5, 0])
-footTable[legWalk4][RB]  = ([ 20, 0, 0])
-footTable[legWalk5][RB]  = ([ 19, -5, 0])
-footTable[legWalk6][RB]  = ([ 18, -10, 0])
-footTable[legWalk7][RB]  = ([ 17, -15, 0])
+footTable[legUp][RF]  = ([ stepS0, stepW0 1])
+footTable[legWalk1][RF]  = ([ stepL3, stepW3 0])
+footTable[legWalk2][RF]  = ([ stepL2, stepW2 0])
+footTable[legWalk3][RF]  = ([ stepL1, stepW1 0])
+footTable[legWalk4][RF]  = ([ stepS0, stepW0 0])
+footTable[legWalk5][RF]  = ([ stepR1, -stepW1 0])
+footTable[legWalk6][RF]  = ([ stepR2, -stepW2 0])
+footTable[legWalk7][RF]  = ([ stepR3, -stepW3 0])
+
+footTable[legUp][LF]  = ([ -stepS0, stepW0 1])
+footTable[legWalk1][LF]  = ([ -stepR3, stepW3 0])
+footTable[legWalk2][LF]  = ([ -stepR2, stepW2 0])
+footTable[legWalk3][LF]  = ([ -stepR1, stepW1 0])
+footTable[legWalk4][LF]  = ([ -stepS0, stepW0 0])
+footTable[legWalk5][LF]  = ([ -stepL1, -stepW1 0])
+footTable[legWalk6][LF]  = ([ -stepL2, -stepW2 0])
+footTable[legWalk7][LF]  = ([ -stepL3, -stepW3 0])
+
+footTable[legUp][LB]  = ([ -stepS0, stepW0 1])
+footTable[legWalk1][LB]  = ([ -stepR3, stepW3 0])
+footTable[legWalk2][LB]  = ([ -stepR2, stepW2 0])
+footTable[legWalk3][LB]  = ([ -stepR1, stepW1 0])
+footTable[legWalk4][LB]  = ([ -stepS0, stepW0 0])
+footTable[legWalk5][LB]  = ([ -stepL1, -stepW1 0])
+footTable[legWalk6][LB]  = ([ -stepL2, -stepW2 0])
+footTable[legWalk7][LB]  = ([ -stepL3, -stepW3 0])
+
+footTable[legUp][RB]  = ([ stepS0, stepW0 1])
+footTable[legWalk1][RB]  = ([ stepL3, stepW3 0])
+footTable[legWalk2][RB]  = ([ stepL2, stepW2 0])
+footTable[legWalk3][RB]  = ([ stepL1, stepW1 0])
+footTable[legWalk4][RB]  = ([ stepS0, stepW0 0])
+footTable[legWalk5][RB]  = ([ stepR1, -stepW1 0])
+footTable[legWalk6][RB]  = ([ stepR2, -stepW2 0])
+footTable[legWalk7][RB]  = ([ stepR3, -stepW3 0])
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
