@@ -77,6 +77,10 @@ zVar = 2
 lineCounter = 0
 step = {}
 legUp = 0
+legWalk1 = 01
+legWalk2 = 07
+legLeft = 11
+legRight = 17
 
 # step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
 # step[LF] = [ (stepX+0)%8 ,(stepY+0)%8]
@@ -103,6 +107,21 @@ footTable[legUp][RF]  = [ 20, 0, 1]
 footTable[legUp][LF]  = [-20, 0, 1]
 footTable[legUp][RB]  = [ 20, 0, 1]
 footTable[legUp][LB]  = [-20, 0, 1]
+footTable[legWalk1] = dict()
+footTable[legWalk1][RF]  = ([ 23, 15, 0])
+footTable[legWalk2] = dict()
+footTable[legWalk2][RF]  = ([ 22, 10, 0])
+footTable[legWalk3] = dict()
+footTable[legWalk3][RF]  = ([ 21, 5, 0])
+footTable[legWalk4] = dict()
+footTable[legWalk4][RF]  = ([ 20, 0, 0])
+footTable[legWalk5] = dict()
+footTable[legWalk5][RF]  = ([ 19, -5, 0])
+footTable[legWalk6] = dict()
+footTable[legWalk6][RF]  = ([ 18, -10, 0])
+footTable[legWalk7] = dict()
+footTable[legWalk7][RF]  = ([ 17, -15, 0])
+
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
@@ -196,16 +215,46 @@ while True:
     step[RF] = [ (stepX+4)%8 ,0]
     step[RB] = [ (stepX+6)%8 ,0]
 
-    legsDown = True
-    if step[RF][xVar] == 0 and legsDown:
-        foot[RF] = footTable[legUp][RF]
+    if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
+        legsDown = True
+    else:
         legsDown = False
+    if legsDown:
+        if step[RF][xVar] == 0:
+            foot[RF] = footTable[legUp][RF]
+            legsDown = False
+        elif step[LF][xVar] == 0:
+            foot[LF]= footTable[legUp][LF]
+            legsDown = False
+        elif step[RB][xVar] == 0:
+            foot[RB] = footTable[legUp][RB]
+            legsDown = False
+        elif step[LB][xVar] == 0:
+            foot[LB]= footTable[legUp][LB]
+            legsDown = False
 
-    if step[LF][xVar] == 0 and legsDown:
-        foot[LF]= footTable[legUp][LF]
-        legsDown = False
+    if step[RF][yVar] == 1:
+        foot[RF][yVar] = footTable[step[RF][yVar]][RF][yVar]
 
+    if step[RF][yVar] == 7:
+        foot[RF][yVar] = footTable[legWalk2][RF][yVar]
 
+    if step[RF][xVar] == 1:
+        foot[RF][xVar] = footTable[legLeft][RF][xVar]
+
+    if step[RF][xVar] == 7:
+        foot[RF][xVar] = footTable[legRight][RF][xVar]
+
+    if step[RF][yVar] > 1 and step[RF][yVar] < 7:
+        foot[RF][yVar]
+
+    # elif step[LF][xVar] == 1:
+    #     foot[LF]= footTable[legUp][LF]
+    # elif step[RB][xVar] == 1:
+    #     foot[RB] = footTable[legUp][RB]
+    # elif step[LB][xVar] == 1:
+    #     foot[LB]= footTable[legUp][LB]
+    #
 
     ### draw the four foot position on the canvas
     if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
