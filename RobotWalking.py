@@ -78,7 +78,13 @@ lineCounter = 0
 step = {}
 legUp = 0
 legWalk1 = 1
-legWalk2 = 7
+legWalk2 = 2
+legWalk3 = 3
+legWalk4 = 4
+legWalk5 = 5
+legWalk6 = 6
+legWalk7 = 7
+
 legLeft = 11
 legRight = 17
 
