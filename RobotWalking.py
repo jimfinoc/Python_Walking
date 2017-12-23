@@ -109,7 +109,7 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 footTable = dict()
 footTable[legUp] = dict()
-footTable[legUp][RF]  = [ 20, 0, 1]
+footTable[legUp][RF]  = ([ 20, 0, 1])
 # footTable[legUp][LF]  = [-20, 0, 1]
 # footTable[legUp][RB]  = [ 20, 0, 1]
 # footTable[legUp][LB]  = [-20, 0, 1]
@@ -151,10 +151,10 @@ foot[LF] = [-20,0,0]
 foot[RF] = [20,0,0]
 foot[RB] = [20,0,0]
 
-foot[LB] = [1,-1,1]
-foot[LF] = [1,1,1]
-foot[RF] = [-1,1,1]
-foot[RB] = [-1,-1,1]
+# foot[LB] = [1,-1,1]
+# foot[LF] = [1,1,1]
+# foot[RF] = [-1,1,1]
+# foot[RB] = [-1,-1,1]
 
 
 initialFoot = foot
@@ -253,6 +253,7 @@ while True:
         foot[RF][xVar] = footTable[legUp][RF][xVar]
         foot[RF][yVar] = footTable[legUp][RF][yVar]
         foot[RF][zVar] = footTable[legUp][RF][zVar]
+
     if step[RF][xVar] == 0:
         foot[RF][xVar] = footTable[legUp][RF][xVar]
         foot[RF][yVar] = footTable[legUp][RF][yVar]
