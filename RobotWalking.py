@@ -139,6 +139,24 @@ footTable[legWalk5][LF]  = ([ -21, -5, 0])
 footTable[legWalk6][LF]  = ([ -22, -10, 0])
 footTable[legWalk7][LF]  = ([ -23, -15, 0])
 
+footTable[legUp][LB]  = ([ -20, 0, 1])
+footTable[legWalk1][LB]  = ([ -17, 15, 0])
+footTable[legWalk2][LB]  = ([ -18, 10, 0])
+footTable[legWalk3][LB]  = ([ -19, 5, 0])
+footTable[legWalk4][LB]  = ([ -20, 0, 0])
+footTable[legWalk5][LB]  = ([ -21, -5, 0])
+footTable[legWalk6][LB]  = ([ -22, -10, 0])
+footTable[legWalk7][LB]  = ([ -23, -15, 0])
+
+footTable[legUp][RB]  = ([ -20, 0, 1])
+footTable[legWalk1][RB]  = ([ -17, 15, 0])
+footTable[legWalk2][RB]  = ([ -18, 10, 0])
+footTable[legWalk3][RB]  = ([ -19, 5, 0])
+footTable[legWalk4][RB]  = ([ -20, 0, 0])
+footTable[legWalk5][RB]  = ([ -21, -5, 0])
+footTable[legWalk6][RB]  = ([ -22, -10, 0])
+footTable[legWalk7][RB]  = ([ -23, -15, 0])
+
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
@@ -266,11 +284,24 @@ while True:
         foot[LF][zVar] = footTable[step[LF][xVar]][LF][zVar]
         foot[LF][xVar] = footTable[step[LF][xVar]][LF][xVar]
 
+    if step[LB][yVar] > 0:
+        foot[LB][zVar] = footTable[step[LB][yVar]][LB][zVar]
+        foot[LB][yVar] = footTable[step[LB][yVar]][LB][yVar]
+    if step[LB][xVar] > 0 and not step[LB][yVar] == 0:
+        foot[LB][zVar] = footTable[step[LB][xVar]][LB][zVar]
+        foot[LB][xVar] = footTable[step[LB][xVar]][LB][xVar]
+
+    if step[RB][yVar] > 0:
+        foot[RB][zVar] = footTable[step[RB][yVar]][RB][zVar]
+        foot[RB][yVar] = footTable[step[RB][yVar]][RB][yVar]
+    if step[RB][xVar] > 0 and not step[RB][yVar] == 0:
+        foot[RB][zVar] = footTable[step[RB][xVar]][RB][zVar]
+        foot[RB][xVar] = footTable[step[RB][xVar]][RB][xVar]
+
     if step[RF][yVar] == 0:
         foot[RF][xVar] = footTable[legUp][RF][xVar]
         foot[RF][yVar] = footTable[legUp][RF][yVar]
         foot[RF][zVar] = footTable[legUp][RF][zVar]
-
     if step[RF][xVar] == 0:
         foot[RF][xVar] = footTable[legUp][RF][xVar]
         foot[RF][yVar] = footTable[legUp][RF][yVar]
@@ -280,11 +311,29 @@ while True:
         foot[LF][xVar] = footTable[legUp][LF][xVar]
         foot[LF][yVar] = footTable[legUp][LF][yVar]
         foot[LF][zVar] = footTable[legUp][LF][zVar]
-
     if step[LF][xVar] == 0:
         foot[LF][xVar] = footTable[legUp][LF][xVar]
         foot[LF][yVar] = footTable[legUp][LF][yVar]
         foot[LF][zVar] = footTable[legUp][LF][zVar]
+
+    if step[LB][yVar] == 0:
+        foot[LB][xVar] = footTable[legUp][LB][xVar]
+        foot[LB][yVar] = footTable[legUp][LB][yVar]
+        foot[LB][zVar] = footTable[legUp][LB][zVar]
+    if step[LB][xVar] == 0:
+        foot[LB][xVar] = footTable[legUp][LB][xVar]
+        foot[LB][yVar] = footTable[legUp][LB][yVar]
+        foot[LB][zVar] = footTable[legUp][LB][zVar]
+
+    if step[RB][yVar] == 0:
+        foot[RB][xVar] = footTable[legUp][RB][xVar]
+        foot[RB][yVar] = footTable[legUp][RB][yVar]
+        foot[RB][zVar] = footTable[legUp][RB][zVar]
+    if step[RB][xVar] == 0:
+        foot[RB][xVar] = footTable[legUp][RB][xVar]
+        foot[RB][yVar] = footTable[legUp][RB][yVar]
+        foot[RB][zVar] = footTable[legUp][RB][zVar]
+
         # print ("footTable[legUp][RF]",footTable[legUp][RF])
         # print ("step[RF][yVar] == 0:")
         # elif step[LF][xVar] == 0:
