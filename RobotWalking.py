@@ -156,9 +156,9 @@ def key(event):
         if event.keysym=="s":
             stepY -= 1
         if event.keysym=="a":
-            stepX += 1
-        if event.keysym=="d":
             stepX -= 1
+        if event.keysym=="d":
+            stepX += 1
         if event.keysym=="q":
             pass
         if event.keysym=="e":
@@ -173,9 +173,9 @@ def key(event):
         if event.keysym=="Down":
             stepY -= 1
         if event.keysym=="Left":
-            stepX += 1
-        if event.keysym=="Right":
             stepX -= 1
+        if event.keysym=="Right":
+            stepX += 1
     # label1.config(text=msg)
     lineCounter += 3
     print(msg)
@@ -191,9 +191,14 @@ while True:
     step[RF] = [ (stepX+4)%8 ,0]
     step[RB] = [ (stepX+6)%8 ,0]
 
-    legsDown = False
+    legsDown = True
     if step[RF][xVar] == 0 and legsDown:
-        foot[RF][xVar] = footTable
+        foot[RF][xVar] = footTable[center][RF][xVar]
+        legsDown = False
+    if step[LF][xVar] == 0 and legsDown:
+        foot[LF][xVar] = footTable[center][LF][xVar]
+        legsDown = False
+
 
 
     ### draw the four foot position on the canvas
