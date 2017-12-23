@@ -78,7 +78,7 @@ footTable[legWalk5] = dict()
 footTable[legWalk6] = dict()
 footTable[legWalk7] = dict()
 
-stepS = 2
+stepS = 3
 stepL3 = 20+3 * stepS
 stepL2 = 20+2 * stepS
 stepL1 = 20+1 * stepS
