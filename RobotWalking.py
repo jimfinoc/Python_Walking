@@ -71,6 +71,8 @@ LB = 0
 LF = 1
 RF = 2
 RB = 3
+xVar = 0
+yVar = 1
 lineCounter = 0
 step = {}
 # step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
@@ -107,7 +109,14 @@ footTable = (
     ]
     )
 #initial positions of the feed
-foot = ([-20,0,0],[-20,0,0],[20,0,0],[20,0,0])
+# foot = ([-20,0,0],[-20,0,0],[20,0,0],[20,0,0])
+foot = {}
+foot[LB] = [-20,0,0]
+foot[LF] = [-20,0,0]
+foot[RF] = [20,0,0]
+foot[RB] = [20,0,0]
+
+
 initialFoot = foot
 
 # footRF = [20,0,0]
@@ -171,6 +180,9 @@ while True:
     step[LF] = [ (stepX+0)%8 ,0]
     step[RF] = [ (stepX+4)%8 ,0]
     step[RB] = [ (stepX+6)%8 ,0]
+
+    legUp = False
+    if step[LB]
 
     ### draw the four foot position on the canvas
     if foot[LF][2]==0 and foot[RF][2]==0 and foot[LB][2]==0 and foot[RB][2]==0:
