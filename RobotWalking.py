@@ -126,10 +126,10 @@ foot[LF] = [-20,0,0]
 foot[RF] = [20,0,0]
 foot[RB] = [20,0,0]
 
-# foot[LB] = [0,0,0]
-# foot[LF] = [0,0,0]
-# foot[RF] = [0,0,0]
-# foot[RB] = [0,0,0]
+foot[LB] = [1,-1,1]
+foot[LF] = [1,1,1]
+foot[RF] = [-1,1,1]
+foot[RB] = [-1,-1,1]
 
 
 initialFoot = foot
