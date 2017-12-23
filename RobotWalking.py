@@ -175,10 +175,10 @@ footTable[legWalk7][RB]  = ([ 17, -15, 0])
 #initial positions of the feed
 # foot = ([-20,0,0],[-20,0,0],[20,0,0],[20,0,0])
 foot = {}
-foot[LB] = [-20,0,0]
-foot[LF] = [-20,0,0]
+foot[LB] = ([-20,0,0])
+foot[LF] = ([-20,0,0])
 foot[RF] = ([20,0,0])
-foot[RB] = [20,0,0]
+foot[RB] = ([20,0,0])
 
 # foot[LB] = [1,-1,1]
 # foot[LF] = [1,1,1]
