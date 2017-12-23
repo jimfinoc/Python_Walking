@@ -216,10 +216,10 @@ root.bind_all('<Key>', key)
 while True:
     # print (heardEnter())
     canvas.delete("all")
-    step[LB] = [ (stepX+2)%8 ,0]
-    step[LF] = [ (stepX+0)%8 ,0]
-    step[RF] = [ (stepX+4)%8 ,0]
-    step[RB] = [ (stepX+6)%8 ,0]
+    step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
+    step[LF] = [ (stepX+0)%8 ,(stepY+0)%8]
+    step[RF] = [ (stepX+4)%8 ,(stepY+4)%8]
+    step[RB] = [ (stepX+6)%8 ,(stepY+6)%8]
 
     if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
         legsDown = True
@@ -229,15 +229,27 @@ while True:
         if step[RF][xVar] == 0:
             foot[RF] = footTable[legUp][RF]
             legsDown = False
-        elif step[LF][xVar] == 0:
-            foot[LF]= footTable[legUp][LF]
+        # elif step[LF][xVar] == 0:
+        #     foot[LF]= footTable[legUp][LF]
+        #     legsDown = False
+        # elif step[RB][xVar] == 0:
+        #     foot[RB] = footTable[legUp][RB]
+        #     legsDown = False
+        # elif step[LB][xVar] == 0:
+        #     foot[LB]= footTable[legUp][LB]
+        #     legsDown = False
+        elif step[RF][yVar] == 0:
+            foot[RF] = footTable[legUp][RF]
             legsDown = False
-        elif step[RB][xVar] == 0:
-            foot[RB] = footTable[legUp][RB]
-            legsDown = False
-        elif step[LB][xVar] == 0:
-            foot[LB]= footTable[legUp][LB]
-            legsDown = False
+        # elif step[LF][xVar] == 0:
+        #     foot[LF]= footTable[legUp][LF]
+        #     legsDown = False
+        # elif step[RB][xVar] == 0:
+        #     foot[RB] = footTable[legUp][RB]
+        #     legsDown = False
+        # elif step[LB][xVar] == 0:
+        #     foot[LB]= footTable[legUp][LB]
+        #     legsDown = False
 
     if step[RF][yVar] > 1:
         foot[RF][yVar] = footTable[step[RF][yVar]][RF][yVar]
