@@ -76,7 +76,7 @@ yVar = 1
 zVar = 2
 lineCounter = 0
 step = {}
-center = 0
+legUp = 0
 
 # step[LB] = [ (stepX+2)%8 ,(stepY+2)%8]
 # step[LF] = [ (stepX+0)%8 ,(stepY+0)%8]
@@ -98,11 +98,11 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 footTable = dict()
-footTable[center] = dict()
-footTable[center][RF]  = [ 20, 0, 1]
-footTable[center][LF]  = [-20, 0, 1]
-footTable[center][RB]  = [ 20, 0, 1]
-footTable[center][LB]  = [-20, 0, 1]
+footTable[legUp] = dict()
+footTable[legUp][RF]  = [ 20, 0, 1]
+footTable[legUp][LF]  = [-20, 0, 1]
+footTable[legUp][RB]  = [ 20, 0, 1]
+footTable[legUp][LB]  = [-20, 0, 1]
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
@@ -126,10 +126,10 @@ foot[LF] = [-20,0,0]
 foot[RF] = [20,0,0]
 foot[RB] = [20,0,0]
 
-foot[LB] = [0,0,0]
-foot[LF] = [0,0,0]
-foot[RF] = [0,0,0]
-foot[RB] = [0,0,0]
+# foot[LB] = [0,0,0]
+# foot[LF] = [0,0,0]
+# foot[RF] = [0,0,0]
+# foot[RB] = [0,0,0]
 
 
 initialFoot = foot
@@ -198,11 +198,11 @@ while True:
 
     legsDown = True
     if step[RF][xVar] == 0 and legsDown:
-        foot[RF][xVar] = footTable[center][RF][xVar]
+        foot[RF] = footTable[legUp][RF]
         legsDown = False
 
     if step[LF][xVar] == 0 and legsDown:
-        foot[LF][xVar] = footTable[center][LF][xVar]
+        foot[LF]= footTable[legUp][LF]
         legsDown = False
 
 
