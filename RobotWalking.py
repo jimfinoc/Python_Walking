@@ -346,6 +346,7 @@ while True:
     # lineCounter += 2
     print ("step",step)
     print ("foot",foot)
+    print ('legsDown',legsDown)
     # print ('{0:4d} {1:4d} {2:4d} {3:4d} '.format(
     #
     #     box[RF][0],
