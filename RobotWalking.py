@@ -92,12 +92,12 @@ step[RF] = [ (stepX+4)%8 ,0]
 step[RB] = [ (stepX+6)%8 ,0]
 
 
-center = ([-1,-1],[-1,1],[1,1],[1,-1])
+centerOfRobot = ([-1,-1],[-1,1],[1,1],[1,-1])
 box = ([-50,-50],[-50,50],[50,50],[50,-50])
 base = ([-45,-45],[-45,45],[45,45],[45,-45])
 
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
-footTable = {}
+footTable = dict{}
 footTable[center] = {}
 footTable[center][RF]  = [ 20, 0, 1]
 footTable[center][LF]  = [-20, 0, 1]
@@ -247,10 +247,10 @@ while True:
     canvas.create_polygon(x+box[RB][0],y-box[RB][1], x+box[LB][0],y-box[LB][1],outline="red")
 
     ### draw the center of mass of the robot
-    canvas.create_polygon(x+center[0][0],y-center[0][1], x+center[1][0],y-center[1][1],outline="red")
-    canvas.create_polygon(x+center[1][0],y-center[1][1],x+center[2][0],y-center[2][1],outline="red")
-    canvas.create_polygon(x+center[2][0],y-center[2][1], x+center[3][0],y-center[3][1],outline="red")
-    canvas.create_polygon(x+center[3][0],y-center[3][1], x+center[0][0],y-center[0][1],outline="red")
+    canvas.create_polygon(x+centerOfRobot[0][0],y-centerOfRobot[0][1], x+centerOfRobot[1][0],y-centerOfRobot[1][1],outline="red")
+    canvas.create_polygon(x+centerOfRobot[1][0],y-centerOfRobot[1][1],x+centerOfRobot[2][0],y-centerOfRobot[2][1],outline="red")
+    canvas.create_polygon(x+centerOfRobot[2][0],y-centerOfRobot[2][1], x+centerOfRobot[3][0],y-centerOfRobot[3][1],outline="red")
+    canvas.create_polygon(x+centerOfRobot[3][0],y-centerOfRobot[3][1], x+centerOfRobot[0][0],y-centerOfRobot[0][1],outline="red")
     # timer += 1
 
     #this is the output text for tracking input and debugging
