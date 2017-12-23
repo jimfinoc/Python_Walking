@@ -38,6 +38,7 @@ class TextPrint:
         self.x -= 10
 
 
+
 # Get ready to print
 textPrint = TextPrint()
 
