@@ -292,6 +292,7 @@ while True:
 
 
     ### draw the four foot position on the canvas
+    print("checking")
     if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
         # footRF = [footRF[0]+
         print ("all four")
