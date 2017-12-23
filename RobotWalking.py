@@ -224,7 +224,7 @@ while True:
                 x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[RB][zVar]==0:
-        canvas.create_polygon(
+            canvas.create_polygon(
                 x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
                 x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
                 x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
