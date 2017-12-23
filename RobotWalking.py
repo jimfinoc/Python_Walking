@@ -381,27 +381,31 @@ while True:
     else: # this just draws one of four triangles for the 3 down feet
         if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0:
             canvas.create_polygon(
-                x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
-                x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],
-                x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
+                x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
+                x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
+                # x+base[RB][xVar]+foot[RB][xVar],y-base[RB][yVar]-foot[RB][yVar],
+                x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[RB][zVar]==0:
             canvas.create_polygon(
-                x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
-                x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],
-                x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
+                x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
+                x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
+                x+base[RB][xVar]+foot[RB][xVar],y-base[RB][yVar]-foot[RB][yVar],
+                # x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if foot[LF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
             canvas.create_polygon(
-                x+base[LF][0]+foot[LF][0],y-base[LF][1]-foot[LF][1],
-                x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
-                x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
+                x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
+                # x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
+                x+base[RB][xVar]+foot[RB][xVar],y-base[RB][yVar]-foot[RB][yVar],
+                x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
         if foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
             canvas.create_polygon(
-                x+base[RF][0]+foot[RF][0],y-base[RF][1]-foot[RF][1],
-                x+base[RB][0]+foot[RB][0],y-base[RB][1]-foot[RB][1],
-                x+base[LB][0]+foot[LB][0],y-base[LB][1]-foot[LB][1],
+                # x+base[LF][xVar]+foot[LF][xVar],y-base[LF][yVar]-foot[LF][yVar],
+                x+base[RF][xVar]+foot[RF][xVar],y-base[RF][yVar]-foot[RF][yVar],
+                x+base[RB][xVar]+foot[RB][xVar],y-base[RB][yVar]-foot[RB][yVar],
+                x+base[LB][xVar]+foot[LB][xVar],y-base[LB][yVar]-foot[LB][yVar],
                 outline="yellow",fill="yellow")
 
 
