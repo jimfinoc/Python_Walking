@@ -148,7 +148,7 @@ footTable[legWalk7][RF]  = ([ 17, -15, 0])
 foot = {}
 foot[LB] = [-20,0,0]
 foot[LF] = [-20,0,0]
-foot[RF] = [20,0,0]
+foot[RF] = ([20,0,0])
 foot[RB] = [20,0,0]
 
 # foot[LB] = [1,-1,1]
