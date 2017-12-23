@@ -130,6 +130,15 @@ footTable[legWalk6][RF]  = ([ 18, -10, 0])
 footTable[legWalk7] = dict()
 footTable[legWalk7][RF]  = ([ 17, -15, 0])
 
+footTable[legUp][LF]  = ([ -20, 0, 1])
+footTable[legWalk1][LF]  = ([ -23, 15, 0])
+footTable[legWalk2][LF]  = ([ -22, 10, 0])
+footTable[legWalk3][LF]  = ([ -21, 5, 0])
+footTable[legWalk4][LF]  = ([ -20, 0, 0])
+footTable[legWalk5][LF]  = ([ -19, -5, 0])
+footTable[legWalk6][LF]  = ([ -18, -10, 0])
+footTable[legWalk7][LF]  = ([ -17, -15, 0])
+
 
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
