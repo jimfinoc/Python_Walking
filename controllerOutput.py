@@ -1,4 +1,4 @@
-textPrint.printing(import pygame
+import pygame
 
 # Define some colors
 BLACK    = (   0,   0,   0)
