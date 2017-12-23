@@ -99,7 +99,10 @@ base = ([-45,-45],[-45,45],[45,45],[45,-45])
 # footRF = ([ 20, 0,1],[ 20, 15,0],[ 20, 10,0],[ 20, 5,0],[ 20, 0,0],[ 20, -5,0],[ 20, -10,0],[ 20, -15,0],[],[])
 footTable = {}
 footTable[center] = {}
-footTable[center][RFgot  = {}
+footTable[center][RF]  = [ 20, 0, 1]
+footTable[center][LF]  = [-20, 0, 1]
+footTable[center][RB]  = [ 20, 0, 1]
+footTable[center][LB]  = [-20, 0, 1]
 [0,0,1]
 # (
 #     # first,0 is the step offset, then,1 is the first limit, then,7 is the other bound
