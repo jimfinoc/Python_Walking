@@ -178,7 +178,7 @@ def key(event):
     global stepX
     global stepY
     global lineCounter
-    global foot
+    # global foot
     if event.char == event.keysym:
         msg = 'Normal Key %r' % event.char
         if event.keysym=="w":
@@ -208,9 +208,9 @@ def key(event):
             stepX += 1
     # label1.config(text=msg)
     lineCounter += 3
-    print(msg)
-    print ("stepx stepy"),
-    print (stepX,stepY)
+    # print(msg)
+    # print ("stepx stepy"),
+    # print (stepX,stepY)
 
 root.bind_all('<Key>', key)
 while True:
