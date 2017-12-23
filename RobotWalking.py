@@ -241,6 +241,12 @@ while True:
         # elif step[LB][xVar] == 0:
         #     foot[LB]= footTable[legUp][LB]
         #     legsDown = False
+    if step[RF][yVar] > 0:
+        foot[RF][zVar] = 0
+        foot[RF][yVar] = footTable[step[RF][yVar]][RF][yVar]
+    if step[RF][xVar] > 0:
+        foot[RF][zVar] = 0
+        foot[RF][xVar] = footTable[step[RF][xVar]][RF][xVar]
     if step[RF][yVar] == 0:
         foot[RF] = footTable[legUp][RF]
         print ("footTable[legUp][RF]",footTable[legUp][RF])
