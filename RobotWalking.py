@@ -126,6 +126,11 @@ foot[LF] = [-20,0,0]
 foot[RF] = [20,0,0]
 foot[RB] = [20,0,0]
 
+foot[LB] = [0,0,0]
+foot[LF] = [0,0,0]
+foot[RF] = [0,0,0]
+foot[RB] = [0,0,0]
+
 
 initialFoot = foot
 
@@ -195,6 +200,7 @@ while True:
     if step[RF][xVar] == 0 and legsDown:
         foot[RF][xVar] = footTable[center][RF][xVar]
         legsDown = False
+
     if step[LF][xVar] == 0 and legsDown:
         foot[LF][xVar] = footTable[center][LF][xVar]
         legsDown = False
