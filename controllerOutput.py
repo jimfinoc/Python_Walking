@@ -1,21 +1,12 @@
 import pygame
-# pygame.init()
-pygame.joystick.init()
 
-print "pygame.joystick.get_count()"
-print pygame.joystick.get_count()
+# Define some colors
+BLACK    = (   0,   0,   0)
+WHITE    = ( 255, 255, 255)
 
-size = [50, 50]
-screen = pygame.display.set_mode(size)
-
-pygame.display.set_caption("End Effector Placement")
-
-#Loop until the user clicks the close button.
-done = False
-
-clock = pygame.time.Clock()
-
-
+# This is a simple class that will help us print to the screen
+# It has nothing to do with the joysticks, just outputting the
+# information.
 class TextPrint:
     def __init__(self):
         self.reset()
@@ -38,12 +29,29 @@ class TextPrint:
         self.x -= 10
 
 
+pygame.init()
+
+# Set the width and height of the screen [width,height]
+size = [500, 700]
+screen = pygame.display.set_mode(size)
+
+pygame.display.set_caption("My Game")
+
+#Loop until the user clicks the close button.
+done = False
+
+# Used to manage how fast the screen updates
+clock = pygame.time.Clock()
+
+# Initialize the joysticks
+pygame.joystick.init()
 
 # Get ready to print
 textPrint = TextPrint()
 
-
+# -------- Main Program Loop -----------
 while done==False:
+    # EVENT PROCESSING STEP
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # If user clicked close
             done=True # Flag that we are done so we exit this loop
@@ -53,6 +61,7 @@ while done==False:
             print("Joystick button pressed.")
         if event.type == pygame.JOYBUTTONUP:
             print("Joystick button released.")
+
 
     # DRAWING STEP
     # First, clear the screen to white. Don't put other drawing commands
