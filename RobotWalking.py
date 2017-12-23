@@ -221,10 +221,10 @@ while True:
     step[RF] = [ (stepX+4)%8 ,(stepY+4)%8]
     step[RB] = [ (stepX+6)%8 ,(stepY+6)%8]
 
-    if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
-        legsDown = True
-    else:
-        legsDown = False
+    # if foot[LF][zVar]==0 and foot[RF][zVar]==0 and foot[LB][zVar]==0 and foot[RB][zVar]==0:
+    #     legsDown = True
+    # else:
+    #     legsDown = False
     legsDown = True
     foot[RF][zVar] = 0
     if legsDown:
