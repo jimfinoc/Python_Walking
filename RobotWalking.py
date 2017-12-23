@@ -1,6 +1,8 @@
 import Tkinter as tk
 import os
 import math
+import pygame
+
 # import pygame
 # import pygame.mixer
 #
