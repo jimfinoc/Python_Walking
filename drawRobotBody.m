@@ -17,7 +17,7 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
 % direction_T_LR = 0
 % head_M_UD = 0
 % head_T_LR = 0
-% input_feet = [0 0 0;0 0 0;0 0 0;0 0 0]
+% input_feet = [155 0 -100;155 0 -100;-155 0 -100;-155 0 -100]
 % last_LR = 0
 % last_UD = 0
 % %drawRobotBody(step, direction_M_FB, direction_M_LR, direction_T_LR, head_M_UD, head_T_LR, input_Feet, last_LR, last_UD)

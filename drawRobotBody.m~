@@ -17,7 +17,7 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
 % direction_T_LR = 0
 % head_M_UD = 0
 % head_T_LR = 0
-% input_feet = [0 0 0;0 0 0;0 0 0;0 0 0]
+% input_feet = [155 0 -100;155 0 -100;0 0 -100;0 0 -100]
 % last_LR = 0
 % last_UD = 0
 % %drawRobotBody(step, direction_M_FB, direction_M_LR, direction_T_LR, head_M_UD, head_T_LR, input_Feet, last_LR, last_UD)
@@ -80,8 +80,8 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
 %     disp ("Joints a1, a2, a3")
 %     disp ([a1 a2 a3])
     
-    legMaxDistance = a1 + a2 +a3; 
-    legMaxDistanceDown =  a2+a3;
+%     legMaxDistance = a1 + a2 +a3; 
+%     legMaxDistanceDown =  a2+a3;
     
     FR_Theta = [ 0 -pi/4 -pi/4];
     
@@ -92,8 +92,8 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
     Joint1BR_AbsolutePosition = [237/2 -237/2 JointHeight];
     Joint1BL_AbsolutePosition = [-237/2 -237/2 JointHeight];
     
-    ground_pt1 = [175 0 0] + Joint1FR_AbsolutePosition + [0 0 -100]
-    ground_pt2 = [125 0 0] + Joint1FR_AbsolutePosition + [0 0 -100]
+    ground_pt1 = [170 0 0] + Joint1FR_AbsolutePosition + [0 0 -100]
+    ground_pt2 = [140 0 0] + Joint1FR_AbsolutePosition + [0 0 -100]
     ground_pt3 = [135 75 0] + Joint1FR_AbsolutePosition + [0 0 -100]
     ground_pt4 = [135 -75 0] + Joint1FR_AbsolutePosition + [0 0 -100]
     
@@ -109,9 +109,9 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
     cylinder(Joint1BL_AbsolutePosition(1),Joint1BL_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
     cylinder(Joint1BR_AbsolutePosition(1),Joint1BR_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
     
-    desiredFR_AbsolutePosition = [160+237/2 -70+237/2 0]
-    desiredFR_RelativePosition = [desiredFR_AbsolutePosition(x)-Joint1FR_AbsolutePosition(x) desiredFR_AbsolutePosition(y)-Joint1FR_AbsolutePosition(y) desiredFR_AbsolutePosition(z)-Joint1FR_AbsolutePosition(z)]
-    desiredFR_RelativePosition = [165  80  -100]
+%     desiredFR_AbsolutePosition = [160+237/2 -70+237/2 0]
+%     desiredFR_RelativePosition = [desiredFR_AbsolutePosition(x)-Joint1FR_AbsolutePosition(x) desiredFR_AbsolutePosition(y)-Joint1FR_AbsolutePosition(y) desiredFR_AbsolutePosition(z)-Joint1FR_AbsolutePosition(z)]
+    desiredFR_RelativePosition = [170  75  -100]
 
     S_FR = desiredFR_RelativePosition(z);
     
@@ -161,7 +161,7 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
     Joint2A_BL = calcAi(BL_DH, 1);
     Joint2BL = [Joint2A_BL(1,4)+Joint1BL_AbsolutePosition(1) Joint2A_BL(2,4)+Joint1BL_AbsolutePosition(2) Joint2A_BL(3,4)+Joint1BL_AbsolutePosition(3)];
     Joint3A_BL = calcAi(BL_DH, 1)*calcAi(BL_DH, 2);
-    Joint3BR = [Joint3A_BL(1,4)+Joint1BL_AbsolutePosition(1) Joint3A_BL(2,4)+Joint1BL_AbsolutePosition(2) Joint3A_BL(3,4)+Joint1BL_AbsolutePosition(3)];
+    Joint3BL = [Joint3A_BL(1,4)+Joint1BL_AbsolutePosition(1) Joint3A_BL(2,4)+Joint1BL_AbsolutePosition(2) Joint3A_BL(3,4)+Joint1BL_AbsolutePosition(3)];
     FootAMatrix_BL = calcAi(BL_DH, 1) * calcAi(BL_DH, 2) * calcAi(BL_DH, 3);
     FootPositionBL = [FootAMatrix_BL(1,4)+Joint1BL_AbsolutePosition(1) FootAMatrix_BL(2,4)+Joint1BL_AbsolutePosition(2) FootAMatrix_BL(3,4)+Joint1BL_AbsolutePosition(3)];
 
@@ -182,8 +182,8 @@ function [ outputFeet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, di
     poly_line(Joint3FL,FootPositionFL);
     
     poly_line(Joint1BL_AbsolutePosition,Joint2BL);
-    poly_line(Joint2BL,Joint3BR);
-    poly_line(Joint3BR,FootPositionBL);
+    poly_line(Joint2BL,Joint3BL);
+    poly_line(Joint3BL,FootPositionBL);
     
     
 %     disp("***************************************");
