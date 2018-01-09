@@ -106,7 +106,7 @@ while done==False:
 
             if i == 5:
                 print (axis)
-            if i == 5 and axis > .999:
+            if i == 5 and axis > 0.99:
                 print ("Fire the main gun")
 
         textPrint.unindent()
