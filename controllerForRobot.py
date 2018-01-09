@@ -36,6 +36,7 @@ size = [500, 700]
 screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Robot Controller")
+print ("This program is designed to use the Xbox 360 Wireless Receiver.")
 
 #Loop until the user clicks the close button.
 done = False
@@ -53,6 +54,10 @@ counter = 0
 # -------- Main Program Loop -----------
 while done==False:
     counter += 1
+
+    textPrint.printing(screen, "Counter {}".format(counter) )
+    textPrint.indent()
+
     # EVENT PROCESSING STEP
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # If user clicked close
@@ -82,9 +87,6 @@ while done==False:
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
 
-        textPrint.printing(screen, "Counter {}".format(counter) )
-        textPrint.indent()
-
         textPrint.printing(screen, "Joystick {}".format(i) )
         textPrint.indent()
 
@@ -101,6 +103,10 @@ while done==False:
         for i in range( axes ):
             axis = joystick.get_axis( i )
             textPrint.printing(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
+
+            if i == 5 and axis = 1:
+                print ("Fire the main gun");
+            
         textPrint.unindent()
 
         buttons = joystick.get_numbuttons()
