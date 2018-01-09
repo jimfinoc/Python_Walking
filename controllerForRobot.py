@@ -55,9 +55,6 @@ counter = 0
 while done==False:
     counter += 1
 
-    textPrint.printing(screen, "Counter {}".format(counter) )
-    textPrint.indent()
-
     # EVENT PROCESSING STEP
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # If user clicked close
@@ -82,6 +79,11 @@ while done==False:
     textPrint.printing(screen, "Number of joysticks: {}".format(joystick_count) )
     textPrint.indent()
 
+    textPrint.printing(screen, "Counter {}".format(counter) )
+    textPrint.indent()
+
+
+
     # For each joystick:
     for i in range(joystick_count):
         joystick = pygame.joystick.Joystick(i)
@@ -104,8 +106,10 @@ while done==False:
             axis = joystick.get_axis( i )
             textPrint.printing(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
 
-            if i == 5:
-                print (axis)
+            # if i == 5:
+                # print ("counter is ")
+                # print (counter
+                # print (axis)
             if i == 5 and axis > 0.99:
                 print ("Fire the main gun")
 
