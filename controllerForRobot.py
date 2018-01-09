@@ -104,8 +104,10 @@ while done==False:
             axis = joystick.get_axis( i )
             textPrint.printing(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
 
+            if i == 5:
+                print (axis)
             if i == 5 and axis == 1:
-                print ("Fire the main gun");
+                print ("Fire the main gun")
 
         textPrint.unindent()
 
