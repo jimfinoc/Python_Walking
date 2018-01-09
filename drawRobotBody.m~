@@ -24,12 +24,12 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
 % %drawRobotBody(step, direction_M_FB, direction_M_LR, direction_T_LR, head_M_UD, head_T_LR, input_feet, last_LR, last_UD)
 
 %   This is the code to assist with keeping the robot from going too fast.
-    direction_M_FB_max = 3
-    direction_M_LR_max = 1
-    direction_T_LR_max = 1
+    direction_M_FB_max = 3;
+    direction_M_LR_max = 1;
+    direction_T_LR_max = 1;
     
 %   we only have 8 positions, 0 - 7
-    step = mod(step,8)
+    step = mod(step,8);
 
 %   This is the code to assist with addressing variables.
     x = 1;
@@ -42,20 +42,20 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
 
 %   This is the code for viewing in matlab.
     
-    close all
-    figure
-    hold on
-    grid on
+    close all;
+    figure;
+    hold on;
+    grid on;
     az = 0; 
     el = 90;
     view(az, el);
-    axis equal
-    xlabel('x')
-    ylabel('y')
-    zlabel('z')
-    xlim([-300 300])
-    ylim([-300 300])
-    zlim([0 150])
+    axis equal;
+    xlabel('x');
+    ylabel('y');
+    zlabel('z');
+    xlim([-300 300]);
+    ylim([-300 300]);
+    zlim([0 150]);
 
 
 %   This is the code required to move the robot.
@@ -114,63 +114,73 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     poly_rectangle(ground_pt1,ground_pt3,ground_pt2,ground_pt4);
     poly_rectangle(max_ground_pt,minmax_ground_pt,min_ground_pt,maxmin_ground_pt);
 
-    cylinder(Joint1FL_AbsolutePosition(1),Joint1FL_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
-    cylinder(Joint1FR_AbsolutePosition(1),Joint1FR_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
-    cylinder(Joint1BL_AbsolutePosition(1),Joint1BL_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
-    cylinder(Joint1BR_AbsolutePosition(1),Joint1BR_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness)
+    %draws the four first joints
+    cylinder(Joint1FL_AbsolutePosition(1),Joint1FL_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness);
+    cylinder(Joint1FR_AbsolutePosition(1),Joint1FR_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness);
+    cylinder(Joint1BL_AbsolutePosition(1),Joint1BL_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness);
+    cylinder(Joint1BR_AbsolutePosition(1),Joint1BR_AbsolutePosition(2),10,zRobotBodySurface,zRobotBodyThickness);
     
-%     desiredFR_AbsolutePosition = [160+237/2 -70+237/2 0]
-%     desiredFR_RelativePosition = [desiredFR_AbsolutePosition(x)-Joint1FR_AbsolutePosition(x) desiredFR_AbsolutePosition(y)-Joint1FR_AbsolutePosition(y) desiredFR_AbsolutePosition(z)-Joint1FR_AbsolutePosition(z)]
-%     desiredFR_RelativePosition = [170  75  -100]
+    % Check moving foward or back 
     if direction_M_FB > 0
        if direction_M_FB > direction_M_FB_max
-           direction_M_FB = direction_M_FB_max
+           direction_M_FB = direction_M_FB_max;
        end
     elseif direction_M_FB < 0        
         if direction_M_FB < -direction_M_FB_max
-           direction_M_FB = -direction_M_FB_max
+           direction_M_FB = -direction_M_FB_max;
        end
     end
     
+    % Check moving left or right 
     if direction_M_LR > 0
        if direction_M_LR > direction_M_LR_max
-           direction_M_LR = direction_M_LR_max
+           direction_M_LR = direction_M_LR_max;
        end   
     elseif direction_M_LR < 0
         if direction_M_LR < -direction_M_LR_max
-           direction_M_LR = -direction_M_LR_max
+           direction_M_LR = -direction_M_LR_max;
        end
     end
     
-    if direction_T_LR > 0
+    % Check turning left or right
+    if direction_T_LR > 0 %turn left
        if direction_T_LR > direction_T_LR_max
-           direction_T_LR = direction_T_LR_max
-    elseif direction_T_LR < 0 
+           direction_T_LR = direction_T_LR_max;
+       end
+    elseif direction_T_LR < 0 %turn right
         if direction_T_LR < -direction_T_LR_max
-           direction_T_LR = -direction_T_LR_max
+           direction_T_LR = -direction_T_LR_max;
+        end    
     end
     
-    input_feet(FR,x) = input_feet(FR,x) - direction_M_LR 
-    input_feet(FR,y) = input_feet(FR,y) - direction_M_FB
-    turn = (atan2(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))+direction_T_LR_max*3/180*pi)
-    TurnX = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*cos(turn)
-    TurnY = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*sin(turn)
-    input_feet(FR,x) 
-    input_feet(FR,y) = input_feet(FR,y) - direction_M_FB
+    if direction_T_LR == 0
+        input_feet(FR,x) = input_feet(FR,x) - direction_M_LR;
+        input_feet(FR,y) = input_feet(FR,y) - direction_M_FB;
+    else
+        input_feet(FR,x) = input_feet(FR,x) - direction_M_LR;
+        input_feet(FR,y) = input_feet(FR,y) - direction_M_FB;
+        turn(FR) = (atan2(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))+direction_T_LR_max*3/2/180*pi);
+        turnX(FR) = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*cos(turn(FR));
+        turnY(FR) = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*sin(turn(FR));
+%         disp("hypot of turnX and turnY");
+%         disp(hypot(turnX,turnY));
+        input_feet(FR,x) = turnX(FR) - Joint1FR_AbsolutePosition(x);
+        input_feet(FR,y) = turnY(FR) - Joint1FR_AbsolutePosition(y);
+    end    
 
     
     %******************************
     if input_feet(FR,z) > -100
-        input_feet(FR,z) = -100
+        input_feet(FR,z) = -100;
         if direction_M_FB > 0
-            input_feet(FR,y) = input_feet(FR,y) + 25
+            input_feet(FR,y) = input_feet(FR,y) + 5*direction_M_FB;
         elseif direction_M_FB < 0
-            input_feet(FR,y) = input_feet(FR,y) - 25
+            input_feet(FR,y) = input_feet(FR,y) + 5*direction_M_FB;
         end
         if direction_M_LR > 0
-            input_feet(FR,x) = input_feet(FR,x) + 25
+            input_feet(FR,x) = input_feet(FR,x) + 5*direction_M_LR;
         elseif direction_M_LR < 0
-            input_feet(FR,x) = input_feet(FR,x) + 25
+            input_feet(FR,x) = input_feet(FR,x) + 5*direction_M_LR;
         end
         
     end
@@ -178,31 +188,33 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     
     if step == 1 
         if input_feet(FR,x) > max_ground_pt(x) - Joint1FR_AbsolutePosition(x)
-            input_feet(FR,x) = center_ground_pt(x) - Joint1FR_AbsolutePosition(x)
-            input_feet(FR,y) = center_ground_pt(y) - Joint1FR_AbsolutePosition(y)
-            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z)
+            input_feet(FR,x) = center_ground_pt(x) - Joint1FR_AbsolutePosition(x);
+            input_feet(FR,y) = center_ground_pt(y) - Joint1FR_AbsolutePosition(y);
+            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z);
+            disp("overstep x");
             
         elseif input_feet(FR,y) > max_ground_pt(y) -Joint1FR_AbsolutePosition(y)
-            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x)
-            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y)
-            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z)
-            
+            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x);
+            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y);
+            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z);
+            disp("overstep y");
         elseif input_feet(FR,x) < min_ground_pt(x) -Joint1FR_AbsolutePosition(x)
-            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x)
-            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y)
-            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z)
-            
+            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x);
+            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y);
+            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z);
+            disp("understep x");
         elseif input_feet(FR,y) < min_ground_pt(y) -Joint1FR_AbsolutePosition(y)
-            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x)
-            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y)
-            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z)
+            input_feet(FR,x) = center_ground_pt(x) -Joint1FR_AbsolutePosition(x);
+            input_feet(FR,y) = center_ground_pt(y) -Joint1FR_AbsolutePosition(y);
+            input_feet(FR,z) = center_ground_pt(z)+10 -Joint1FR_AbsolutePosition(z);
+            disp("understep y");
         end
     elseif step == 3
     elseif step == 5
     elseif step == 7
     end
     
-    desiredFR_RelativePosition = [input_feet(FR,x) input_feet(FR,y) input_feet(FR,z)]
+    desiredFR_RelativePosition = [input_feet(FR,x) input_feet(FR,y) input_feet(FR,z)];
     
     S_FR = desiredFR_RelativePosition(z);
     
@@ -229,7 +241,7 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     Joint2FR = [Joint2A_FR(1,4)+Joint1FR_AbsolutePosition(1) Joint2A_FR(2,4)+Joint1FR_AbsolutePosition(2) Joint2A_FR(3,4)+Joint1FR_AbsolutePosition(3)];
     Joint3A_FR = calcAi(FR_DH, 1)*calcAi(FR_DH, 2);
     Joint3FR = [Joint3A_FR(1,4)+Joint1FR_AbsolutePosition(1) Joint3A_FR(2,4)+Joint1FR_AbsolutePosition(2) Joint3A_FR(3,4)+Joint1FR_AbsolutePosition(3)];
-    FootAMatrix_FR = calcAi(FR_DH, 1) * calcAi(FR_DH, 2) * calcAi(FR_DH, 3)
+    FootAMatrix_FR = calcAi(FR_DH, 1) * calcAi(FR_DH, 2) * calcAi(FR_DH, 3);
     FootPositionFR = [FootAMatrix_FR(1,4)+Joint1FR_AbsolutePosition(1) FootAMatrix_FR(2,4)+Joint1FR_AbsolutePosition(2) FootAMatrix_FR(3,4)+Joint1FR_AbsolutePosition(3)];
     
 %     output_feet(FR,x) = FootPositionFR(x);

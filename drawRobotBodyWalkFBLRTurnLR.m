@@ -98,6 +98,7 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     Joint1FL_AbsolutePosition = [-237/2 237/2 JointHeight];
     Joint1BR_AbsolutePosition = [237/2 -237/2 JointHeight];
     Joint1BL_AbsolutePosition = [-237/2 -237/2 JointHeight];
+
     
     ground_pt1 = [170 0 0] + Joint1FR_AbsolutePosition + [0 0 -100];
     ground_pt2 = [140 0 0] + Joint1FR_AbsolutePosition + [0 0 -100];
@@ -159,13 +160,13 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     else
         input_feet(FR,x) = input_feet(FR,x) - direction_M_LR;
         input_feet(FR,y) = input_feet(FR,y) - direction_M_FB;
-        turn(FR) = (atan2(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))+direction_T_LR_max*3/2/180*pi);
-        turnX(FR) = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*cos(turn(FR));
-        turnY(FR) = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*sin(turn(FR));
+        turn = (atan2(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))+direction_T_LR_max*3/2/180*pi);
+        turnX = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*cos(turn);
+        turnY = hypot(input_feet(FR,y)+Joint1FR_AbsolutePosition(y),input_feet(FR,x)+Joint1FR_AbsolutePosition(x))*sin(turn);
 %         disp("hypot of turnX and turnY");
 %         disp(hypot(turnX,turnY));
-        input_feet(FR,x) = turnX(FR) - Joint1FR_AbsolutePosition(x);
-        input_feet(FR,y) = turnY(FR) - Joint1FR_AbsolutePosition(y);
+        input_feet(FR,x) = turnX - Joint1FR_AbsolutePosition(x);
+        input_feet(FR,y) = turnY - Joint1FR_AbsolutePosition(y);
     end    
 
     
