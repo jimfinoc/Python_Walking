@@ -65,8 +65,8 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
     yMinRobotBody =-150;
     yMaxRobotBody =150;
     zRobotBodySurface = 100-19; 
-     
     zRobotBodyThickness = zRobotBodySurface + 38;
+    JointHeight = .5*(zRobotBodySurface+zRobotBodyThickness);
 
     
     p1 = [xMaxRobotBody/3  yMaxRobotBody    zRobotBodySurface ];
@@ -91,8 +91,15 @@ function [ output_feet ] = drawRobotBody(step, direction_M_FB, direction_M_LR, d
 %     legMaxDistanceDown =  a2+a3;
     
     FR_Theta = [ 0 -pi/4 -pi/4];
+    Theta = [ 0 -pi/4 -pi/4; 0 -pi/4 -pi/4; 0 -pi/4 -pi/4; 0 -pi/4 -pi/4];
     
-    JointHeight = .5*(zRobotBodySurface+zRobotBodyThickness);
+    
+    
+    Joint1_AbsolutePosition = [
+        237/2 237/2 JointHeight;
+        -237/2 237/2 JointHeight;
+        237/2 -237/2 JointHeight;
+        -237/2 -237/2 JointHeight]
     
     Joint1FR_AbsolutePosition = [237/2 237/2 JointHeight];
     Joint1FL_AbsolutePosition = [-237/2 237/2 JointHeight];

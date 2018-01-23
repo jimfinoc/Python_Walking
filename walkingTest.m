@@ -11,7 +11,7 @@ clc
 
 filename = 'walking.gif';
 az = 0; 
-el = 45;
+el = 90;
 % az = 0
 % el = 0
 
@@ -22,10 +22,10 @@ hold on
 grid on
 
 
-for step = 1:64
+for step = 1:128
     disp("****************************************");
     disp("executing next movement");
-    input_feet = drawRobotBody(step, direction_M_FB, direction_M_LR, direction_T_LR, head_M_UD, head_T_LR, input_feet, last_LR, last_UD);
+    input_feet = drawRobotBodyV2(step, direction_M_FB, direction_M_LR, direction_T_LR, head_M_UD, head_T_LR, input_feet, last_LR, last_UD);
     disp(input_feet);
     view(az, el);    
     frame = getframe(gcf); 
